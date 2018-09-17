@@ -16,6 +16,9 @@ class Nav extends Component {
           <span>
             <a onClick={this.handleLogout}>Logout</a>
             <Link to="/profile">Profile</Link>
+            <Link to="/adding">Adding</Link>
+            <Link to="/spending">Spending</Link>
+            <Link to="/initialplanning">Initial Planning</Link>
           </span>
         );
     }
@@ -31,6 +34,7 @@ class Nav extends Component {
         <div>
           <nav className="nav">
             <Link to="/">Home</Link>
+
             {links}
           </nav>
         </div>
