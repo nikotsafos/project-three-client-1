@@ -10,6 +10,8 @@ import Nav from './layout/Nav';
 import Profile from './Profile';
 import Signup from './auth/Signup';
 import InitialPlanning from './components/InitialPlanning';
+import Adding from './components/Adding';
+import Spending from'./components/Spending';
 
 class App extends Component {
   constructor(props){
@@ -63,6 +65,9 @@ class App extends Component {
           <div className="container">
             <Nav user={this.state.user} updateUser={this.getUser} />
             <Route exact path="/" component={Home} />
+            <Route path="/adding" component={Adding} />
+            <Route path="/spending" component={Spending} />
+            <Route path="/initialplanning" component={InitialPlanning} />
             <Route path="/login" component={
               () => (<Login user={this.state.user} updateUser={this.getUser} />)
             } />
