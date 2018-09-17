@@ -11,7 +11,6 @@ class Adding extends Component {
 	}
 
 	handleChange = (e) => {
-		console.log(this.state);
 		this.setState({
 			[e.target.name]: e.target.value
 		})
@@ -24,6 +23,11 @@ class Adding extends Component {
 			date: this.state.date,
 			details: this.state.details
 		});
+		console.log(this.state);
+	}
+
+	showresult = (e) => {
+		return(<p>{this.state.amount}</p>);
 	}
 	render() {
 		return(
@@ -39,7 +43,7 @@ class Adding extends Component {
 					<label for="details">Details:</label>
 					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
 			
-					<button className="btn btn-primary" type="submit">Adding</button> 
+					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button> 
 				</form>
 			</div>
 		);

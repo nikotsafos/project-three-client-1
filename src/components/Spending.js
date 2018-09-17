@@ -4,9 +4,27 @@ class Spending extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			amount: '',
-			date: '',
-			details: ''
+			housing: {
+				amount: '',
+				date: '',
+				details: ''},
+			food: {
+				amount: '',
+				date: '',
+				details: ''},
+			entertainment: {
+				amount: '',
+				date: '',
+				details: ''},
+			transportation: {
+				amount: '',
+				date: '',
+				details: ''},
+			shopping: {
+				amount: '',
+				date: '',
+				details: ''},
+
 		}
 	}
 
