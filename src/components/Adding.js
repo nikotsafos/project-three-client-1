@@ -14,6 +14,7 @@ class Adding extends Component {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
+		console.log(this.state);
 	}
 
 	handleSubmit = (e) => {
@@ -23,12 +24,12 @@ class Adding extends Component {
 			date: this.state.date,
 			details: this.state.details
 		});
-		console.log(this.state);
+		
 	}
 
-	showresult = (e) => {
-		return(<p>{this.state.amount}</p>);
-	}
+	// showresult = (e) => {
+	// 	return(<p>{this.state.amount}</p>);
+	// }
 	render() {
 		return(
 			<div>

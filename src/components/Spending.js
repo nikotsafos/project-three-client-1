@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import SpendingItems from'./components/SpendingItems';
 
 class Spending extends Component {
 	constructor(props) {
@@ -51,10 +52,10 @@ class Spending extends Component {
 				<form className="HousingSpending" onSubmit={this.handleSubmit}>
 					<label for="housing">Housing</label><br />
 					<label for="amount">Amount:</label>
-					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+					<input type="number" name="amount" value={this.state.housing.amount} onChange={this.handleChange} />
 				
 					<label for="date">Date:</label>
-					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+					<input type="date" name="date" value={this.state.housing.date} onChange={this.handleChange} />
 
 					<label for="details">Details:</label>
 					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
