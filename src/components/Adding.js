@@ -27,19 +27,21 @@ class Adding extends Component {
 	}
 	render() {
 		return(
-			<form className="AddingForm" onSubmit={this.handleSubmit}>
-				<label for="amount">Amount:</label>
-				<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+			<div>
+				<h1>Add more money</h1>
+				<form className="AddingForm" onSubmit={this.handleSubmit}>
+					<label for="amount">Amount:</label>
+					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
 				
-				<label for="date">Date:</label>
-				<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+					<label for="date">Date:</label>
+					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-				<label for="details">Details:</label>
-				<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
+					<label for="details">Details:</label>
+					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
 			
-				<button className="btn btn-primary" type="submit">Adding</button> 
-			</form>
-
+					<button className="btn btn-primary" type="submit">Adding</button> 
+				</form>
+			</div>
 		);
 	}
 }

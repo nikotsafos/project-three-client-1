@@ -28,75 +28,77 @@ class Spending extends Component {
 	render() {
 		return(
 			<div>
-			<form className="HousingSpending" onSubmit={this.handleSubmit}>
-				<label for="housing">Housing</label><br />
-				<label for="amount">Amount:</label>
-				<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+
+				<h1>Adding your spending</h1>
+				<form className="HousingSpending" onSubmit={this.handleSubmit}>
+					<label for="housing">Housing</label><br />
+					<label for="amount">Amount:</label>
+					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
 				
-				<label for="date">Date:</label>
-				<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+					<label for="date">Date:</label>
+					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-				<label for="details">Details:</label>
-				<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
+					<label for="details">Details:</label>
+					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
 			
-				<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
-			</form>
+					<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
+				</form>
 
-			<form className="FoodSpending" onSubmit={this.handleSubmit}>
-				<label for="food">Food</label><br />
-				<label for="amount">Amount:</label>
-				<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+				<form className="FoodSpending" onSubmit={this.handleSubmit}>
+					<label for="food">Food</label><br />
+					<label for="amount">Amount:</label>
+					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
 				
-				<label for="date">Date:</label>
-				<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+					<label for="date">Date:</label>
+					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-				<label for="details">Details:</label>
-				<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
+					<label for="details">Details:</label>
+					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
 			
-				<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
-			</form>
+					<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
+				</form>
 
-			<form className="EntertainmentSpending" onSubmit={this.handleSubmit}>
-				<label for="entertainment">Entertainment</label><br />
-				<label for="amount">Amount:</label>
-				<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+				<form className="EntertainmentSpending" onSubmit={this.handleSubmit}>
+					<label for="entertainment">Entertainment</label><br />
+					<label for="amount">Amount:</label>
+					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
 				
-				<label for="date">Date:</label>
-				<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+					<label for="date">Date:</label>
+					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-				<label for="details">Details:</label>
-				<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
+					<label for="details">Details:</label>
+					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
 			
-				<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
-			</form>
+					<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
+				</form>
 
-			<form className="TransportationSpending" onSubmit={this.handleSubmit}>
-				<label for="transportation">Transportation</label><br />
-				<label for="amount">Amount:</label>
-				<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+				<form className="TransportationSpending" onSubmit={this.handleSubmit}>
+					<label for="transportation">Transportation</label><br />
+					<label for="amount">Amount:</label>
+					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
 				
-				<label for="date">Date:</label>
-				<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+					<label for="date">Date:</label>
+					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-				<label for="details">Details:</label>
-				<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
+					<label for="details">Details:</label>
+					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
 			
-				<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
-			</form>
+					<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
+				</form>
 
-			<form className="ShoppingSpending" onSubmit={this.handleSubmit}>
-				<label for="shopping">Shopping</label><br />
-				<label for="amount">Amount:</label>
-				<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+				<form className="ShoppingSpending" onSubmit={this.handleSubmit}>
+					<label for="shopping">Shopping</label><br />
+					<label for="amount">Amount:</label>
+					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
 				
-				<label for="date">Date:</label>
-				<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+					<label for="date">Date:</label>
+					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-				<label for="details">Details:</label>
-				<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
+					<label for="details">Details:</label>
+					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
 			
-				<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
-			</form>
+					<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
+				</form>
 			</div>
 		);
 	}

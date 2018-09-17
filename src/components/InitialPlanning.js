@@ -32,31 +32,31 @@ class Adding extends Component {
 	render() {
 		return(
 			<div>
-			<h1>Initial Financial Plan</h1>
-			<form className="InitialPlanningForm" onSubmit={this.handleSubmit}>
-				<label for="totalMoney">TotalMoney:</label>
-				<input type="number" name="totalMoney" value={this.state.totalMoney} onChange={this.handleChange} /> <br />
+				<h1>Initial Financial Plan</h1>
+				<form className="InitialPlanningForm" onSubmit={this.handleSubmit}>
+					<label for="totalMoney">TotalMoney:</label>
+					<input type="number" name="totalMoney" value={this.state.totalMoney} onChange={this.handleChange} /> <br />
 				
-				<label for="housingBudget">Housing Budget:</label>
-				<input type="number" name="housingBudget" value={this.state.housingBudget} onChange={this.handleChange} /> <br />
+					<label for="housingBudget">Housing Budget:</label>
+					<input type="number" name="housingBudget" value={this.state.housingBudget} onChange={this.handleChange} /> <br />
 
-				<label for="FoodBudget">Food Budget:</label>
-				<input type="number" name="FoodBudget" value={this.state.FoodBudget} onChange={this.handleChange} /><br />
+					<label for="FoodBudget">Food Budget:</label>
+					<input type="number" name="FoodBudget" value={this.state.FoodBudget} onChange={this.handleChange} /><br />
 			
-				<label for="TransportationBudget">Transportation Budget:</label>
-				<input type="number" name="TransportationBudget" value={this.state.TransportationBudget} onChange={this.handleChange} /> <br />
+					<label for="TransportationBudget">Transportation Budget:</label>
+					<input type="number" name="TransportationBudget" value={this.state.TransportationBudget} onChange={this.handleChange} /> <br />
 				
-				<label for="EntertainmentBudget">Entertainment Budget:</label>
-				<input type="number" name="housingBudget" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br />
+					<label for="EntertainmentBudget">Entertainment Budget:</label>
+					<input type="number" name="housingBudget" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br />
 
-				<label for="ShoppingBudget">Shopping Budget:</label>
-				<input type="number" name="ShoppingBudget" value={this.state.ShoppingBudget} onChange={this.handleChange} /><br />
+					<label for="ShoppingBudget">Shopping Budget:</label>
+					<input type="number" name="ShoppingBudget" value={this.state.ShoppingBudget} onChange={this.handleChange} /><br />
 
-				<label for="addingMoney">Adding Money:</label>
-				<input type="number" name="addingMoney" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br /><br />
+					<label for="addingMoney">Adding Money:</label>
+					<input type="number" name="addingMoney" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br /><br />
 			
-				<button className="btn btn-primary" type="submit">Adding</button> <br />
-			</form>
+					<button className="btn btn-primary" type="submit">Adding</button> <br />
+				</form>
 			</div>
 		);
 	}
