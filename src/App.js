@@ -48,7 +48,6 @@ class App extends Component {
     }
     else {
       console.log('No token was found');
-      localStorage.removeItem('mernToken');
       this.setState({
         user: null
       });

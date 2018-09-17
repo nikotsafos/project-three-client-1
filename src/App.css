@@ -17,6 +17,14 @@ nav a:hover {
   color: hotpink;
 }
 
+.wrapper {
+  margin: 20px;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 300px 300px 600px;
+  grid-template-rows: 300px 300px;
+}
+
 .footer {
   background-color: #555;
   width: 100%;
