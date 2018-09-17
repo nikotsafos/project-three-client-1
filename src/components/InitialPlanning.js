@@ -15,7 +15,6 @@ class Adding extends Component {
 	}
 
 	handleChange = (e) => {
-		console.log(this.state);
 		this.setState({
 			[e.target.name]: e.target.value
 		})
@@ -23,21 +22,22 @@ class Adding extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.handleSubmit({
-			totalMoney: this.state.totalMoney,
-			housingBudget: this.state.housingBudget,
-			foodBudget: this.state.foodBudget,
-			transportationBudget: this.state.transportationBudget,
-			entertainmentBudget: this.state.entertainmentBudget,
-			shoppingBudget: this.state.shoppingBudget,
-			addingMoney: this.state.addingMoney
-		});
+		console.log(this.state);
+		// this.props.handleSubmit({
+		// 	totalMoney: this.state.totalMoney,
+		// 	housingBudget: this.state.housingBudget,
+		// 	foodBudget: this.state.foodBudget,
+		// 	transportationBudget: this.state.transportationBudget,
+		// 	entertainmentBudget: this.state.entertainmentBudget,
+		// 	shoppingBudget: this.state.shoppingBudget,
+		// 	addingMoney: this.state.addingMoney
+		// });
 	}
 	render() {
 		return(
 			<div>
 				<h1>Initial Financial Plan</h1>
-				<form className="InitialPlanningForm" onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit}>
 					<label for="totalMoney">TotalMoney:</label>
 					<input type="number" name="totalMoney" value={this.state.totalMoney} onChange={this.handleChange} /> <br />
 				

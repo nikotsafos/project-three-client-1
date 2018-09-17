@@ -14,16 +14,16 @@ class Adding extends Component {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
-		console.log(this.state);
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.handleSubmit({
-			amount: this.state.amount,
-			date: this.state.date,
-			details: this.state.details
-		});
+		console.log(this.state);
+		// this.props.handleSubmit({
+		// 	amount: this.state.amount,
+		// 	date: this.state.date,
+		// 	details: this.state.details
+		// });
 		
 	}
 
