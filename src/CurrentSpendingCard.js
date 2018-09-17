@@ -28,7 +28,7 @@ const CurrentSpendingCard = props => {
 	
     return(
     	<div>
-        	<h3>Current Spending</h3>
+        	<h3>Current Spendingth</h3>
         	{allItems.map(item => {
         		return <p> {item.name}: {item.amt} </p>
         	})}
