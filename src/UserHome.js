@@ -3,6 +3,8 @@ import BudgetCard from './BudgetCard';
 import CurrentSpendingCard from './CurrentSpendingCard';
 import IncomeForm from './IncomeForm';
 import ExpenditureForm from './ExpenditureForm';
+import SpendingItems from './components/SpendingItems';
+import Adding from './components/Adding';
 
 const myExpenses = [
 {	name: 'housing',
@@ -84,12 +86,8 @@ class UserHome extends Component {
 		       		array={myExpenses} 
 		      />
 		       <div class="forms">
-			       <IncomeForm />
-			       <ExpenditureForm 
-			        	handleChange={this.handleChange}
-	          			handleAddExpense={this.handleAddTask}
-	          			newExpense={this.state.newExpense}
-	          		/>
+		       	   <SpendingItems user={this.props.user} />
+		       	   <Adding user={this.props.user} />
 			   </div>
 		    </div>
 
