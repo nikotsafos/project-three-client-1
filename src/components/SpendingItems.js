@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SERVER_URL from '../constants/server';
+
 
 class SpendingItems extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
+			user: '',
 			amount: '',
 			date: '',
 			description: ''
@@ -20,20 +23,24 @@ class SpendingItems extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		axios.post( {
-
-		}).then( () => {
-
-		}).catch(() => {
-
+		axios.post('http://localhost:3000/spending', this.state)
+		.then(result => {
+			console.log(result);
+		})
+		.catch(err => {
+			console.log('error');
 		});
 
 	}
 
 
 	render() {
+		if(this.props.user){
+
+
 		return (
 			<div>
+				<h4>userId :  {this.props.user.id}</h4>
 				<form  onSubmit={this.handleSubmit}>
 						<p>{this.props.value}</p>
 						<label for="amount">Amount:</label>
@@ -42,8 +49,7 @@ class SpendingItems extends Component {
 						<label for="date">Date:</label>
 						<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-
-						<label for="description">Details:</label>
+						<label for="description">description:</label>
 						<input type="text" name="description" value={this.state.description} onChange={this.handleChange} /><br />
 
 						<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
@@ -51,6 +57,7 @@ class SpendingItems extends Component {
 			</div>
 		);
 	}
+}
 }
 
 export default SpendingItems;
