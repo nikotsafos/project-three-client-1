@@ -68,10 +68,15 @@ class App extends Component {
             <Route path="/adding" component={
               () => (<Adding user={this.state.user} />)
             } />
+            
             <Route path="/spending" component={
               () => (<Spending user={this.state.user} />)
             } />
-            <Route path="/initialplanning" component={InitialPlanning} />
+
+            <Route path="/initialplanning" component={
+              () => (<InitialPlanning user={this.state.user} />)
+            } />
+
             <Route path="/login" component={
               () => (<Login user={this.state.user} updateUser={this.getUser} />)
             } />
