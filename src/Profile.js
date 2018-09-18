@@ -7,7 +7,9 @@ class Profile extends Component {
       return (
           <div>
             <h2>Hello again, {this.props.user.firstName}!</h2>
+
            <UserHome user={this.props.user}/>
+
           </div>
         );
     }

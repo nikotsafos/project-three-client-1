@@ -1,28 +1,44 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Adding extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			totalMoney : '',
+		//	totalMoney : '',
 			housingBudget : '',
 			foodBudget : '',
 			transportationBudget : '',
 			entertainmentBudget : '',
 			shoppingBudget : '',
-			addingMoney : ''
+			userId: ''
+		//	addingMoney : ''
 		}
 	}
 
 	handleChange = (e) => {
 		this.setState({
-			[e.target.name]: e.target.value
+			[e.target.name]: e.target.value,
+			
+		})
+	}
+
+	componentDidMount(){
+		this.setState({
+			userId: this.props.user.id
 		})
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(this.state);
+		axios.post('http://localhost:3000/budget', this.state)
+		.then(result => {
+			console.log(result);
+		})
+		.catch(err => {
+			console.log('error');
+		});
 		// this.props.handleSubmit({
 		// 	totalMoney: this.state.totalMoney,
 		// 	housingBudget: this.state.housingBudget,
@@ -38,9 +54,9 @@ class Adding extends Component {
 			<div>
 				<h1>Initial Financial Plan</h1>
 				<form onSubmit={this.handleSubmit}>
-					<label for="totalMoney">TotalMoney:</label>
+				{/*	<label for="totalMoney">TotalMoney:</label>
 					<input type="number" name="totalMoney" value={this.state.totalMoney} onChange={this.handleChange} /> <br />
-				
+				*/}
 					<label for="housingBudget">Housing Budget:</label>
 					<input type="number" name="housingBudget" value={this.state.housingBudget} onChange={this.handleChange} /> <br />
 
@@ -55,10 +71,10 @@ class Adding extends Component {
 
 					<label for="shoppingBudget">Shopping Budget:</label>
 					<input type="number" name="shoppingBudget" value={this.state.ShoppingBudget} onChange={this.handleChange} /><br />
-
+{/*
 					<label for="addingMoney">Adding Money:</label>
 					<input type="number" name="addingMoney" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br /><br />
-			
+	*/}		
 					<button className="btn btn-primary" type="submit">Adding</button> <br />
 				</form>
 			</div>

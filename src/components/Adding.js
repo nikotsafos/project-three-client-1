@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Adding extends Component {
 	constructor(props) {
@@ -6,25 +7,34 @@ class Adding extends Component {
 		this.state = {
 			amount: '',
 			date: '',
-			details: ''
+			description: '',
+			userId: ''
 		}
 	}
 
 	handleChange = (e) => {
 		this.setState({
-			[e.target.name]: e.target.value
+			[e.target.name]: e.target.value,
+		
+		})
+	}
+
+	componentDidMount(){
+		this.setState({
+			userId: this.props.user.id
 		})
 	}
 
 	handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(this.state);
-		// this.props.handleSubmit({
-		// 	amount: this.state.amount,
-		// 	date: this.state.date,
-		// 	details: this.state.details
-		// });
-		
+		axios.post('http://localhost:3000/money/all', this.state)
+		.then(result => {
+			console.log(result);
+		})
+		.catch(err => {
+			console.log('error');
+		});		
 	}
 
 	// showresult = (e) => {
@@ -41,8 +51,8 @@ class Adding extends Component {
 					<label for="date">Date:</label>
 					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-					<label for="details">Details:</label>
-					<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
+					<label for="description">description:</label>
+					<input type="text" name="description" value={this.state.description} onChange={this.handleChange} /><br />
 			
 					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button> 
 				</form>
