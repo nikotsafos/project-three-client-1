@@ -55,11 +55,12 @@ class Spending extends Component {
 
 	render() {
 		console.log("STATE OF SPENDING.JS ", this.state);
+		
 		return(
 			<div>
 
 				<h1>Adding your spending</h1>
-				<SpendingItems />
+				<SpendingItems user={this.props.user} />
 	
 
 				{/*

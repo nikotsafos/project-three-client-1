@@ -12,6 +12,7 @@ import Signup from './auth/Signup';
 import InitialPlanning from './components/InitialPlanning';
 import Adding from './components/Adding';
 import Spending from'./components/Spending';
+import SpendingItems from'./components/SpendingItems';
 
 class App extends Component {
   constructor(props){
@@ -65,7 +66,9 @@ class App extends Component {
             <Nav user={this.state.user} updateUser={this.getUser} />
             <Route exact path="/" component={Home} />
             <Route path="/adding" component={Adding} />
-            <Route path="/spending" component={Spending} />
+            <Route path="/spending" component={
+              () => (<Spending user={this.state.user} />)
+            } />
             <Route path="/initialplanning" component={InitialPlanning} />
             <Route path="/login" component={
               () => (<Login user={this.state.user} updateUser={this.getUser} />)

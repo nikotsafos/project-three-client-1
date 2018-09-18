@@ -10,14 +10,17 @@ class SpendingItems extends Component {
 			amount: '',
 			date: '',
 			description: '',
+			userId: '',
 			category: ''
+			
 		}
 	}
 
 	handleChange = (e) => {
 		console.log("handling the change...");
 		this.setState({
-			[e.target.name]: e.target.value
+			[e.target.name]: e.target.value,
+			userid: this.props.user.id
 		})
 	}
 
