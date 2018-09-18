@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SERVER_URL from '../constants/server';
 
 class SpendingItems extends Component {
 
@@ -8,7 +9,7 @@ class SpendingItems extends Component {
 		this.state = {
 			amount: '',
 			date: '',
-			details: ''
+			description: ''
 		}
 	}
 
@@ -20,14 +21,12 @@ class SpendingItems extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.state);
-		// TODO send this.state to database (this.props.value is the category?)
-		axios.post( {
-
-		}).then( () => {
-
-		}).catch(() => {
-
+		axios.post('http://localhost:3000/spending', this.state)
+		.then(result => {
+			console.log(result);
+		})
+		.catch(err => {
+			console.log('error');
 		});
 
 	}
@@ -44,8 +43,8 @@ class SpendingItems extends Component {
 						<label for="date">Date:</label>
 						<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-						<label for="details">Details:</label>
-						<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
+						<label for="description">description:</label>
+						<input type="text" name="description" value={this.state.description} onChange={this.handleChange} /><br />
 				
 						<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
 				</form>
