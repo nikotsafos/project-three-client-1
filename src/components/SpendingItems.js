@@ -8,7 +8,7 @@ class SpendingItems extends Component {
 		this.state = {
 			amount: '',
 			date: '',
-			details: ''
+			description: ''
 		}
 	}
 
@@ -20,8 +20,6 @@ class SpendingItems extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.state);
-		// TODO send this.state to database (this.props.value is the category?)
 		axios.post( {
 
 		}).then( () => {
@@ -40,13 +38,14 @@ class SpendingItems extends Component {
 						<p>{this.props.value}</p>
 						<label for="amount">Amount:</label>
 						<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
-					
+
 						<label for="date">Date:</label>
 						<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
-						<label for="details">Details:</label>
-						<input type="text" name="details" value={this.state.details} onChange={this.handleChange} /><br />
-				
+
+						<label for="description">Details:</label>
+						<input type="text" name="description" value={this.state.description} onChange={this.handleChange} /><br />
+
 						<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
 				</form>
 			</div>
