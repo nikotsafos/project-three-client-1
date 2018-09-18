@@ -20,7 +20,7 @@ class SpendingItems extends Component {
 		console.log("handling the change...");
 		this.setState({
 			[e.target.name]: e.target.value,
-			userid: this.props.user.id
+			userId: this.props.user.id
 		})
 	}
 
