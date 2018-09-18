@@ -59,11 +59,8 @@ class Spending extends Component {
 			<div>
 
 				<h1>Adding your spending</h1>
-				<SpendingItems value="housing" />
-				<SpendingItems value="food" />
-				<SpendingItems value="entertainment" />
-				<SpendingItems value="transportation" />
-				<SpendingItems value="shopping" />
+				<SpendingItems />
+	
 
 				{/*
 				<form className="HousingSpending" onSubmit={this.handleSubmit}>
