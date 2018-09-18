@@ -58,10 +58,11 @@ class Spending extends Component {
 		
 		return(
 			<div>
-
 				<h1>Adding your spending</h1>
+
 				<SpendingItems user={this.props.user} />
 	
+   </div>
 
 				{/*
 				<form className="HousingSpending" onSubmit={this.handleSubmit}>

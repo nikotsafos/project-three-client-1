@@ -5,6 +5,7 @@ class IncomeForm extends Component {
     return(
     	<div>
     		<h3> Add Income </h3>
+        <p> </p>
         	<form>
  			 Amount:
   			<input type="text" name="amount" />
