@@ -35,12 +35,9 @@ class SpendingItems extends Component {
 
 
 	render() {
-		if(this.props.user){
-
 
 		return (
 			<div>
-				<h4>userId :  {this.props.user.id}</h4>
 				<form  onSubmit={this.handleSubmit}>
 						<p>{this.props.value}</p>
 						<label for="amount">Amount:</label>
@@ -58,6 +55,6 @@ class SpendingItems extends Component {
 		);
 	}
 }
-}
+
 
 export default SpendingItems;

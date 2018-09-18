@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UserHome from './UserHome.js';
 
 class Profile extends Component {
   render() {
@@ -6,8 +7,7 @@ class Profile extends Component {
       return (
           <div>
             <h2>Hello again, {this.props.user.firstName}!</h2>
-            <h4>Your email :  {this.props.user.email}</h4>
-            <h4>userId :  {this.props.user.id}</h4>
+           <UserHome user={this.props.user}/>
           </div>
         );
     }

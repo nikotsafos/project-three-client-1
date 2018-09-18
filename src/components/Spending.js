@@ -57,13 +57,12 @@ class Spending extends Component {
 		console.log("STATE OF SPENDING.JS ", this.state);
 		return(
 			<div>
-
 				<h1>Adding your spending</h1>
-				<SpendingItems value="housing" />
-				<SpendingItems value="food" />
-				<SpendingItems value="entertainment" />
-				<SpendingItems value="transportation" />
-				<SpendingItems value="shopping" />
+				<SpendingItems user={this.props.user} value="housing" />
+				<SpendingItems user={this.props.user} value="food" />
+				<SpendingItems user={this.props.user} value="entertainment" />
+				<SpendingItems user={this.props.user} value="transportation" />
+				<SpendingItems user={this.props.user} value="shopping" />
 
 				{/*
 				<form className="HousingSpending" onSubmit={this.handleSubmit}>
