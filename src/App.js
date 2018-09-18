@@ -65,6 +65,7 @@ class App extends Component {
           <div className="container">
             <Nav user={this.state.user} updateUser={this.getUser} />
             <Route exact path="/" component={Home} />
+
             <Route path="/adding" component={
               () => (<Adding user={this.state.user} />)
             } />
@@ -76,6 +77,7 @@ class App extends Component {
             <Route path="/initialplanning" component={
               () => (<InitialPlanning user={this.state.user} />)
             } />
+
 
             <Route path="/login" component={
               () => (<Login user={this.state.user} updateUser={this.getUser} />)
