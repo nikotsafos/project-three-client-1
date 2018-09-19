@@ -38,8 +38,6 @@ class Adding extends Component {
 	}
 
 
-
-
 	render() {
 		return(
 			<div>
@@ -57,7 +55,9 @@ class Adding extends Component {
 					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button>
 				</form>
 
-			</div>
+		</div>
+
+
 		);
 	}
 }
