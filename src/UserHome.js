@@ -40,7 +40,7 @@ class UserHome extends Component {
 	componentDidMount() {
 		this.setState({
 			allExpenses: myExpenses
-		}, () => console.log("THIS STATE", this.state.totalExpenses))
+		}, () => console.log("OTHER STATE", this.state.totalExpenses))
 	}
 
 
@@ -50,7 +50,7 @@ class UserHome extends Component {
     	<div>
 	       <h1> HOME </h1>
 	       <div class="wrapper">
-		       <BudgetCard  
+		       <BudgetCard  budget={this.props.budget}
 		       	/>
 		       <CurrentSpendingCard 
 		       		title="Current Spending"
