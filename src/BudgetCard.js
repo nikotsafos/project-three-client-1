@@ -9,12 +9,14 @@ var objectNum = -1;
 class BudgetCard extends Component {
 
   render() {
-var total = 0;
+
+    total = 0;
+
     objectNum = -1;
     return(
     	<div>
         	<h3>Monthly Budget</h3>
-        	
+
         	{Object.keys(this.props.budget).map(key => {
 
     			return total += parseInt(this.props.budget[key]),
@@ -23,8 +25,8 @@ var total = 0;
 
 			})}
 
-        	
-		
+
+
 			<p>total: {total} </p>
 
 

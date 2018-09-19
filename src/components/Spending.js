@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SpendingItems from './SpendingItems.js';
 import axios from 'axios';
+import moment from 'moment';
 
 class Spending extends Component {
 	state = {
@@ -27,7 +28,7 @@ class Spending extends Component {
 		const entertainmentJSX = entertainment.map( spending => {
 			return(		
 				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {spending.date} </p>			
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).calendar()} </p>			
 				</div>
 			)
 		})
@@ -43,7 +44,7 @@ class Spending extends Component {
 		const housingJSX = housing.map( spending => {
 			return(		
 				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {spending.date} </p>			
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).calendar()} </p>			
 				</div>
 			)
 		})
@@ -59,7 +60,7 @@ class Spending extends Component {
 		const foodJSX = food.map( spending => {
 			return(		
 				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {spending.date} </p>			
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).calendar()} </p>			
 				</div>
 			)
 		})
@@ -75,7 +76,7 @@ class Spending extends Component {
 		const shoppingJSX = shopping.map( spending => {
 			return(		
 				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {spending.date} </p>			
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).calendar()} </p>			
 				</div>
 			)
 		})
@@ -91,7 +92,7 @@ class Spending extends Component {
 		const transportationJSX = transportation.map( spending => {
 			return(		
 				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {spending.date} </p>			
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).calendar()} </p>			
 				</div>
 			)
 		})
@@ -107,7 +108,7 @@ class Spending extends Component {
 		const savingsJSX = savings.map( spending => {
 			return(		
 				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {spending.date} </p>			
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).calendar()} </p>			
 				</div>
 			)
 		})
@@ -128,9 +129,15 @@ class Spending extends Component {
 					{foodJSX }
 					Total: ${food_total}
 
+
 					<h1>Entertainment</h1>
 					{entertainmentJSX}
 					Total: ${entertainment_total}
+
+				{ this.state.spending.map(spending =>
+					<li>-{spending.amount} {spending.description} {spending.category} {moment(spending.date).calendar()}<button>Edit</button><button>Delete</button></li>
+				)}
+
 
 					<h1>Shopping</h1>
 					{shoppingJSX}
