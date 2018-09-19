@@ -28,7 +28,11 @@ class Spending extends Component {
 			</div>
 			<div>
 				<ul>
-					{ this.state.spending.map(spending => <li>{spending.category}: {spending.amount}</li>)}
+
+				{ this.state.spending.map(spending => 
+					<li>{spending.category}: {spending.amount}</li>
+				)}
+
 				</ul>
 			</div>
 
