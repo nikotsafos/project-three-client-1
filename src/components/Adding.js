@@ -26,7 +26,6 @@ class Adding extends Component {
 
 
 	handleSubmit = (e) => {
-		e.preventDefault();
 		console.log(this.state);
 		axios.post('http://localhost:3000/money/all', this.state)
 		.then(result => {
@@ -38,6 +37,7 @@ class Adding extends Component {
 	}
 
 
+<<<<<<< HEAD
 	// componentDidMount() {
 	// 	axios.get('http://localhost:3000/money/all')
 	// 		.then(res => {
@@ -45,6 +45,9 @@ class Adding extends Component {
 	// 			this.setState({ money });
 	// 		})
 	// }
+=======
+
+>>>>>>> upstream/master
 
 	render() {
 		return(
@@ -62,12 +65,17 @@ class Adding extends Component {
 
 					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button>
 				</form>
+<<<<<<< HEAD
 		{/*		<ul>
 				{ this.state.money.map(money =>
 				 	<li>{money.category}: {money.amount}</li>
 				 )}
 				</ul>
 */}			</div>
+=======
+	
+			</div>
+>>>>>>> upstream/master
 		);
 	}
 }
