@@ -5,21 +5,19 @@ class Adding extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-		//	totalMoney : '',
 			housingBudget : '',
 			foodBudget : '',
 			transportationBudget : '',
 			entertainmentBudget : '',
 			shoppingBudget : '',
 			userId: ''
-		//	addingMoney : ''
-		}
+ 		}
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value,
-			
+
 		})
 	}
 
@@ -62,10 +60,10 @@ class Adding extends Component {
 
 					<label for="FoodBudget">Food Budget:</label>
 					<input type="number" name="foodBudget" value={this.state.FoodBudget} onChange={this.handleChange} /><br />
-			
+
 					<label for="transportationBudget">Transportation Budget:</label>
 					<input type="number" name="transportationBudget" value={this.state.TransportationBudget} onChange={this.handleChange} /> <br />
-				
+
 					<label for="entertainmentBudget">Entertainment Budget:</label>
 					<input type="number" name="entertainmentBudget" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br />
 
@@ -74,7 +72,7 @@ class Adding extends Component {
 {/*
 					<label for="addingMoney">Adding Money:</label>
 					<input type="number" name="addingMoney" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br /><br />
-	*/}		
+	*/}
 					<button className="btn btn-primary" type="submit">Adding</button> <br />
 				</form>
 			</div>
