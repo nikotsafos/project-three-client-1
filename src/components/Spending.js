@@ -14,20 +14,30 @@ class Spending extends Component {
 				this.setState({ spending });
 			})
 	}
+
 	render() {
-		console.log("STATE OF SPENDING.JS ", this.state);
-		
+
+
 		return(
 			<div>
+				<div>
 				<h1>Adding your spending</h1>
 
 				<SpendingItems user={this.props.user} />
+
+			</div>
+			<div>
 				<ul>
+
 				{ this.state.spending.map(spending => 
 					<li>{spending.category}: {spending.amount}</li>
 				)}
+
 				</ul>
-   			</div>
+			</div>
+
+   </div>
+
 		);
 	}
 }
