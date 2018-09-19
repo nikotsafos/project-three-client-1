@@ -29,8 +29,8 @@ class Spending extends Component {
 			<div>
 				<ul>
 
-				{ this.state.spending.map(spending => 
-					<li>{spending.category}: {spending.amount}</li>
+				{ this.state.spending.map(spending =>
+					<li>{spending.category}: {spending.amount}<button>Edit</button><button>Delete</button></li>
 				)}
 
 				</ul>
