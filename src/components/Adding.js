@@ -26,7 +26,6 @@ class Adding extends Component {
 
 
 	handleSubmit = (e) => {
-		e.preventDefault();
 		console.log(this.state);
 		axios.post('http://localhost:3000/money/all', this.state)
 		.then(result => {
@@ -36,6 +35,7 @@ class Adding extends Component {
 			console.log('error');
 		});
 	}
+
 
 
 
@@ -55,6 +55,7 @@ class Adding extends Component {
 
 					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button>
 				</form>
+
 			</div>
 		);
 	}
