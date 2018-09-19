@@ -29,7 +29,8 @@ class AllMoneyList extends Component {
 			</div>
 			<div>
 				<ul>
-					{ this.state.allMoney.map(allMoney => <li>{allMoney.category}: {allMoney.amount}</li>)}
+					{ this.state.allMoney.map(allMoney => 
+						<li>Amount adding: ${allMoney.amount}. From: {allMoney.description}. Date: {allMoney.date}</li>)}
 				</ul>
 			</div>
 

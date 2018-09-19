@@ -17,9 +17,11 @@ class Spending extends Component {
 
 	render() {
 		const entertainment = [];
+		var entertainment_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "entertainment"){
 				entertainment.push(item);
+				entertainment_total += item.amount
 			}
 		})
 		const entertainmentJSX = entertainment.map( spending => {
@@ -31,9 +33,11 @@ class Spending extends Component {
 		})
 
 		const housing = [];
+		var housing_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "housing"){
 				housing.push(item);
+				housing_total += item.amount
 			}
 		})
 		const housingJSX = housing.map( spending => {
@@ -45,9 +49,11 @@ class Spending extends Component {
 		})
 				
 		const food = [];
+		var food_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "food"){
 				food.push(item);
+				food_total += item.amount
 			}
 		})
 		const foodJSX = food.map( spending => {
@@ -59,9 +65,11 @@ class Spending extends Component {
 		})
 		
 		const shopping = [];
+		var shopping_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "shopping"){
 				shopping.push(item);
+				shopping_total += item.amount
 			}
 		})
 		const shoppingJSX = shopping.map( spending => {
@@ -73,9 +81,11 @@ class Spending extends Component {
 		})
 						
 		const transportation = [];
+		var transportation_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "transportation"){
 				transportation.push(item);
+				transportation_total += item.amount
 			}
 		})
 		const transportationJSX = transportation.map( spending => {
@@ -87,9 +97,11 @@ class Spending extends Component {
 		})
 
 		const savings= [];
+		var savings_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "savings"){
 				savings.push(item);
+				savings_total += item.amount
 			}
 		})
 		const savingsJSX = savings.map( spending => {
@@ -110,21 +122,27 @@ class Spending extends Component {
 				<div>
 					<h1>Housing</h1>
 					{housingJSX }
+					Total: ${housing_total}
 
 					<h1>Food</h1>
 					{foodJSX }
+					Total: ${food_total}
 
 					<h1>Entertainment</h1>
 					{entertainmentJSX}
+					Total: ${entertainment_total}
 
 					<h1>Shopping</h1>
-					{shoppingJSX}	
+					{shoppingJSX}
+					Total: ${shopping_total}	
 
 					<h1>Transportation</h1>
 					{transportationJSX}
+					Total: ${transportation_total}
 
 					<h1>Savings</h1>
 					{savingsJSX}
+					Total: ${savings_total}
 
 					<br/><br/><br/><br/>		
 				</div>
