@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+
 class Adding extends Component {
+
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -9,7 +12,7 @@ class Adding extends Component {
 			date: '',
 			description: '',
 			userId: '',
-			money: []
+
 		}
 	}
 
@@ -17,10 +20,9 @@ class Adding extends Component {
 		this.setState({
 			[e.target.name]: e.target.value,
 			userId: this.props.user.id
-		
+
 		})
 	}
-
 
 
 	handleSubmit = (e) => {
@@ -32,7 +34,7 @@ class Adding extends Component {
 		})
 		.catch(err => {
 			console.log('error');
-		});		
+		});
 	}
 
 
@@ -50,15 +52,15 @@ class Adding extends Component {
 				<h1>Add more money</h1>
 				<form className="AddingForm" onSubmit={this.handleSubmit}>
 					<label for="amount">Amount:</label>
-					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
-				
+					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required />
+
 					<label for="date">Date:</label>
 					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
 					<label for="description">description:</label>
 					<input type="text" name="description" value={this.state.description} onChange={this.handleChange} /><br />
-			
-					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button> 
+
+					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button>
 				</form>
 				<ul>
 				{ this.state.money.map(money =>

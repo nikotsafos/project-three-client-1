@@ -13,6 +13,7 @@ import InitialPlanning from './components/InitialPlanning';
 import Adding from './components/Adding';
 import Spending from'./components/Spending';
 import SpendingItems from'./components/SpendingItems';
+import AllMoneyList from './components/AllMoneyList.js';
 
 class App extends Component {
   constructor(props){
@@ -67,9 +68,9 @@ class App extends Component {
             <Route exact path="/" component={Home} />
 
             <Route path="/adding" component={
-              () => (<Adding user={this.state.user} />)
+              () => (<AllMoneyList user={this.state.user} />)
             } />
-            
+
             <Route path="/spending" component={
               () => (<Spending user={this.state.user} />)
             } />
