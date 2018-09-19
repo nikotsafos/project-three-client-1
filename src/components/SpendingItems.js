@@ -13,13 +13,14 @@ class SpendingItems extends Component {
 			date: '',
 			description: '',
 			userId: '',
-			category: ''
+			category: 'housing'
+			
 
 		}
 	}
 
 	handleChange = (e) => {
-		console.log("handling the change...");
+		console.log("handling the change...", e.target);
 		this.setState({
 			[e.target.name]: e.target.value,
 			userId: this.props.user.id
@@ -55,7 +56,7 @@ class SpendingItems extends Component {
 						</select>*/}
 
 						<select name="category" onChange={this.handleChange}>
-  							<option value="housing" >Housing</option>
+  							<option value="housing" selected="selected">Housing</option>
  				  			<option value="food" >Food</option>
   							<option value="entertainment" >Entertainment</option>
   							<option value="shopping" >Shopping</option>
