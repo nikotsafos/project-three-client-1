@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import UserHome from './UserHome.js';
 import axios from 'axios';
+import '../node_modules/react-vis/dist/style.css';
+
+
 
 
 class Profile extends Component {
@@ -21,6 +24,7 @@ class Profile extends Component {
       })
   }
   render() {
+ 
     console.log("RENDER STATE", this.state);
     if(this.props.user){
       return (
@@ -31,7 +35,7 @@ class Profile extends Component {
       </div>
 
            <UserHome budget={this.state.budget} user={this.props.user}/>
-
+                
           </div>
         );
     }

@@ -5,6 +5,7 @@ import IncomeForm from './IncomeForm';
 import ExpenditureForm from './ExpenditureForm';
 import SpendingItems from './components/SpendingItems';
 import Adding from './components/Adding';
+import DoughnutChart from './DoughnutChart';
 
 const myExpenses = [
 {	name: 'housing',
@@ -49,20 +50,21 @@ class UserHome extends Component {
     return(
     	<div>
 	       <h1> HOME </h1>
-	       <div class="wrapper">
+	       <div class="budgetWrapper">
+	      	   <DoughnutChart budget={this.props.budget} />
 		       <BudgetCard  budget={this.props.budget}
 		       	/>
 		       <CurrentSpendingCard 
 		       		title="Current Spending"
 		       		array={myExpenses} 
 		      />
-		       <div class="forms">
+		      </div>
+		       <div class="formWrapper">
 		       	   <SpendingItems user={this.props.user} />
 		       	   <Adding user={this.props.user} />
 			   </div>
 		    </div>
 
-	     </div>
       );
   }
 }
