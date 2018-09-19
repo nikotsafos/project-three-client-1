@@ -52,9 +52,9 @@ class UserHome extends Component {
 	       <div class="wrapper">
 		       <BudgetCard  budget={this.props.budget}
 		       	/>
-		       <CurrentSpendingCard 
+		       <CurrentSpendingCard
 		       		title="Current Spending"
-		       		array={myExpenses} 
+		       		array={myExpenses}
 		      />
 		       <div class="forms">
 		       	   <SpendingItems user={this.props.user} />

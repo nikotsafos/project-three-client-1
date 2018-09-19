@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 // const allItems = [
 // {	name: 'housing',
@@ -60,7 +61,7 @@ export default class CurrentSpendingCard extends Component {
 
     return (
       <ul>
-        { this.state.spending.map(spending => <li>{spending.category}: {spending.amount}</li>)}
+        { this.state.spending.map(spending => <li>-{spending.amount} {spending.category} {moment(spending.date).calendar()}</li>)}
       </ul>
     )
   }
