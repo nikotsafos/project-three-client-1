@@ -14,7 +14,7 @@ class SpendingItems extends Component {
 			description: '',
 			userId: '',
 			category: 'housing'
-			
+
 
 		}
 	}
@@ -65,7 +65,7 @@ class SpendingItems extends Component {
 						</select>
 
 						<label for="amount">Amount:</label>
-						<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+						<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required />
 
 						<label for="date">Date:</label>
 						<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />

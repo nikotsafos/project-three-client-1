@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+
 class Adding extends Component {
+
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -9,7 +12,6 @@ class Adding extends Component {
 			date: '',
 			description: '',
 			userId: '',
-
 		}
 	}
 
@@ -20,7 +22,6 @@ class Adding extends Component {
 
 		})
 	}
-
 
 
 	handleSubmit = (e) => {
@@ -53,7 +54,7 @@ class Adding extends Component {
 				<h1>Add more money</h1>
 				<form className="AddingForm" onSubmit={this.handleSubmit}>
 					<label for="amount">Amount:</label>
-					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} />
+					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required />
 
 					<label for="date">Date:</label>
 					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
