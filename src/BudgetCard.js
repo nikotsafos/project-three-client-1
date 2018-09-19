@@ -8,6 +8,7 @@ var objectNum = -1;
 
 class BudgetCard extends Component {
   render() {
+    objectNum = -1;
     return(
     	<div>
         	<h3>Monthly Budget</h3>
