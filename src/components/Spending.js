@@ -3,57 +3,6 @@ import SpendingItems from './SpendingItems.js';
 import axios from 'axios';
 
 class Spending extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// 	this.state = {
-	// 		housing: {
-	// 			amount: '',
-	// 			date: '',
-	// 			details: ''},
-	// 		food: {
-	// 			amount: '',
-	// 			date: '',
-	// 			details: ''},
-	// 		entertainment: {
-	// 			amount: '',
-	// 			date: '',
-	// 			details: ''},
-	// 		transportation: {
-	// 			amount: '',
-	// 			date: '',
-	// 			details: ''},
-	// 		shopping: {
-	// 			amount: '',
-	// 			date: '',
-	// 			details: ''},
-
-	// 	}
-	// }
-
-	// handleChange = (e) => {
-	// 	console.log(this.state);
-	// 	this.setState({
-	// 		[e.target.name]: e.target.value
-	// 	})
-	// }
-
-	// handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	this.props.handleSubmit({
-	// 		amount: this.state.amount,
-	// 		date: this.state.date,
-	// 		details: this.state.details
-	// 	});
-	// }
-
-	// handleSubmit = (value, individualItem) => {
-	// 	console.log("HANDLING SUBMIT FROM SPENDING.JS");
-		// TODO: send to database
-	// 	this.setState({
-	// 		[value] : individualItem
-	// 	});
-	// }
-
 	state = {
 		spending: []
 	}
@@ -66,7 +15,6 @@ class Spending extends Component {
 			})
 	}
 
-
 	render() {
 
 
@@ -76,6 +24,7 @@ class Spending extends Component {
 				<h1>Adding your spending</h1>
 
 				<SpendingItems user={this.props.user} />
+
 			</div>
 			<div>
 				<ul>
@@ -84,8 +33,6 @@ class Spending extends Component {
 			</div>
 
    </div>
-
-
 
 		);
 	}

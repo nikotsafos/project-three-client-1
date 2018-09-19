@@ -8,22 +8,20 @@ class Adding extends Component {
 			amount: '',
 			date: '',
 			description: '',
-			userId: ''
+			userId: '',
+			
 		}
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value,
+			userId: this.props.user.id
 		
 		})
 	}
 
-	componentDidMount(){
-		this.setState({
-			userId: this.props.user.id
-		})
-	}
+
 
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -37,9 +35,18 @@ class Adding extends Component {
 		});		
 	}
 
-	// showresult = (e) => {
-	// 	return(<p>{this.state.amount}</p>);
+	// state = {
+	// 	money: []
 	// }
+
+	// componentDidMount() {
+	// 	axios.get('http://localhost:3000/money/all')
+	// 		.then(res => {
+	// 			const money = res.data;
+	// 			this.setState({ money });
+	// 		})
+	// }
+
 	render() {
 		return(
 			<div>
@@ -56,6 +63,10 @@ class Adding extends Component {
 			
 					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button> 
 				</form>
+		{/*		<ul>
+				{ this.state.spending.map(spending =>
+				 <li>{spending.category}: {spending.amount}</li>)}
+				</ul>*/}
 			</div>
 		);
 	}
