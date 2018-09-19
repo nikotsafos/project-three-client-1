@@ -17,13 +17,22 @@ nav a:hover {
   color: hotpink;
 }
 
-.wrapper {
+.budgetWrapper {
   margin: 20px;
   text-align: left;
   display: grid;
-  grid-template-columns: 300px 300px 600px;
-  grid-template-rows: 300px 300px;
+  grid-template-columns: 400px 400px 400px;
+  grid-template-rows: 400px;
 }
+
+.formWrapper {
+  margin: 20px;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 900px;
+  grid-template-rows: 100px 100px 100px;
+}
+
 
 .footer {
   background-color: #555;
