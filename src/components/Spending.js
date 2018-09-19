@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SpendingItems from './SpendingItems.js';
 import axios from 'axios';
+import moment from 'moment';
 
 class Spending extends Component {
 	state = {
@@ -29,8 +30,8 @@ class Spending extends Component {
 			<div>
 				<ul>
 
-				{ this.state.spending.map(spending => 
-					<li>{spending.category}: {spending.amount}</li>
+				{ this.state.spending.map(spending =>
+					<li>-{spending.amount} {spending.description} {spending.category} {moment(spending.date).calendar()}<button>Edit</button><button>Delete</button></li>
 				)}
 
 				</ul>

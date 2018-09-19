@@ -54,9 +54,9 @@ class UserHome extends Component {
 	      	   <DoughnutChart budget={this.props.budget} />
 		       <BudgetCard  budget={this.props.budget}
 		       	/>
-		       <CurrentSpendingCard 
+		       <CurrentSpendingCard
 		       		title="Current Spending"
-		       		array={myExpenses} 
+		       		array={myExpenses}
 		      />
 		      </div>
 		       <div class="formWrapper">

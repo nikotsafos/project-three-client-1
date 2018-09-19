@@ -14,7 +14,7 @@ class BudgetCard extends Component {
     return(
     	<div>
         	<h3>Monthly Budget</h3>
-        	
+
         	{Object.keys(this.props.budget).map(key => {
 
     			return total += parseInt(this.props.budget[key]),
@@ -23,8 +23,8 @@ class BudgetCard extends Component {
 
 			})}
 
-        	
-		
+
+
 			<p>total: {total} </p>
 
 
