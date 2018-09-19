@@ -24,8 +24,8 @@ class Spending extends Component {
 				<SpendingItems user={this.props.user} />
 				<ul>
 				{ this.state.spending.map(spending => 
-					<li>{spending.category}: {spending.amount}</li>)
-			}
+					<li>{spending.category}: {spending.amount}</li>
+				)}
 				</ul>
    			</div>
 		);

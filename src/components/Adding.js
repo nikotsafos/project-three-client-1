@@ -9,7 +9,7 @@ class Adding extends Component {
 			date: '',
 			description: '',
 			userId: '',
-			
+			money: []
 		}
 	}
 
@@ -35,17 +35,14 @@ class Adding extends Component {
 		});		
 	}
 
-	// state = {
-	// 	money: []
-	// }
 
-	// componentDidMount() {
-	// 	axios.get('http://localhost:3000/money/all')
-	// 		.then(res => {
-	// 			const money = res.data;
-	// 			this.setState({ money });
-	// 		})
-	// }
+	componentDidMount() {
+		axios.get('http://localhost:3000/money/all')
+			.then(res => {
+				const money = res.data;
+				this.setState({ money });
+			})
+	}
 
 	render() {
 		return(
@@ -63,10 +60,11 @@ class Adding extends Component {
 			
 					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button> 
 				</form>
-		{/*		<ul>
-				{ this.state.spending.map(spending =>
-				 <li>{spending.category}: {spending.amount}</li>)}
-				</ul>*/}
+				<ul>
+				{ this.state.money.map(money =>
+				 	<li>{money.category}: {money.amount}</li>
+				 )}
+				</ul>
 			</div>
 		);
 	}
