@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 import SpendingItems from './SpendingItems.js';
 import axios from 'axios';
 import moment from 'moment';
+import SpendingDetails from './SpendingDetails';
+
+let spendingCategories = ["housing", "food", "transportation", "shopping", "entertainment", "savings"];
+let spendingArr = [];
 
 class Spending extends Component {
 	state = {
 		spending: [],
+		entertainment: '',
+		housing: '',
+		food: '',
+		shopping: '',
+		savings: ''
 	}
 
 	componentDidMount() {
@@ -31,6 +40,41 @@ class Spending extends Component {
 		var entertainmentSep_total = 0;
 		var entertainmentAug_total = 0;
 	//	for (let i = 0; i< month; i++ ){
+		console.log("want to see array spending ",this.state.spending);
+		
+// ----- NEW CODE -----
+		// populate categories array
+		this.state.spending.forEach(item => {
+			if (!spendingCategories.includes(item.category)) {
+				spendingCategories.push(item.category)
+			}
+		})
+		
+		let summarizedSpending = {};
+		this.state.spending.forEach(item => {
+			if (summarizedSpending[item.category]) {
+				summarizedSpending[item.category].push({
+					'description': item.description,
+					'amount': item.amount,
+					'date': item.date
+				})
+			} else {
+				summarizedSpending[item.category] = [{
+					'description': item.description,
+					'amount': item.amount,
+					'date': item.date
+				}];
+			}
+		})
+
+		spendingCategories.forEach(category => {
+			if (!summarizedSpending[category]) {
+				summarizedSpending[category] = [];
+			}
+		})
+		console.log('summarizedSpending:', summarizedSpending);
+// ----- NEW CODE -----
+
 		this.state.spending.forEach( item => {
 			if(item.category === "entertainment"){
 				if(moment(item.date).format("MMMM") === "September") {
@@ -243,6 +287,7 @@ class Spending extends Component {
 
 		return(
 			<div>
+			
 				<div>
 					
 					<SpendingItems user={this.props.user} />
@@ -250,6 +295,12 @@ class Spending extends Component {
 
 				<div>
 
+					<SpendingDetails category='Housing' spending={summarizedSpending['housing']} />
+					<SpendingDetails category='Food' spending={summarizedSpending['food']} />
+					<SpendingDetails category='Tranportation' spending={summarizedSpending['transportation']} />
+					<SpendingDetails category='Shopping' spending={summarizedSpending['shopping']} />
+					<SpendingDetails category='Entertainment' spending={summarizedSpending['entertainment']} />
+					<SpendingDetails category='Savings' spending={summarizedSpending['savings']} />
 
 					<h2>{moment().format('MMMM')} Spending</h2>
 					<h1>Housing</h1>
