@@ -22,11 +22,11 @@ render(){
 		    radius={140}
 		    getAngle={d => d.theta}
 		    data={[
-		      {theta: housing, Name: 'Housing'},
-		      {theta: transportation, Name: 'Transportation'},
-		      {theta: entertainment, Name: 'Entertainment'},
-		      {theta: shopping, Name: 'Shopping'},
-		      {theta: food, Name: 'Food'}
+		      {theta: housing, Label: 'Housing'},
+		      {theta: transportation, Label: 'Transportation'},
+		      {theta: entertainment, Label: 'Entertainment'},
+		      {theta: shopping, Label: 'Shopping'},
+		      {theta: food, Label: 'Food'}
 		        ]}
 		    onValueMouseOver={v => this.setState({value: v})}
 		    onSeriesMouseOut={v => this.setState({value: false})}

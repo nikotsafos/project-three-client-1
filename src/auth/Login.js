@@ -36,17 +36,21 @@ class Login extends Component {
       return (<Redirect to="/profile" />);
     }
     return(
-        <div>
-          <h2>Login as an existing user</h2>
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
-            </div>
-            <div>
-              <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-            </div>
-            <input type="submit" value="Log Me In!" className="button" />
-          </form>
+        <div className="home-page">
+          <div className="auth-box">
+            <h2 className="auth-title">Log In to Your Ginkgo Account</h2>
+            <form onSubmit={this.handleSubmit}>
+              <label className="auth-label" for="email">email</label>
+              <div>
+                <input className="auth-input" name="Email" value={this.state.email} onChange={this.handleEmailChange} />
+              </div>
+                <label className="auth-label" for="password">password</label>
+              <div>
+                <input className="auth-input" name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+              </div>
+              <input type="submit" value="Log Me In!" className="button home-link" />
+            </form>
+          </div>
         </div>
       );
   }

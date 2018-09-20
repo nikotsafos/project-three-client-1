@@ -43,23 +43,29 @@ class Signup extends Component {
       return (<Redirect to="/profile" />);
     }
     return(
-        <div>
-          <h2>Signup as a new user</h2>
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <input name="FirstName" placeholder="What is your first name?" value={this.state.firstName} onChange={this.handleFirstNameChange} />
-            </div>
+        <div className="home-page">
+          <div className="auth-box">
+            <h2 className="auth-title">Sign up with Ginkgo</h2>
+            <form onSubmit={this.handleSubmit}>
+             <label className="auth-label" for="firstName">first name</label>
               <div>
-              <input name="LastName" placeholder="What is your last name?" value={this.state.lastName} onChange={this.handleLastNameChange} />
-            </div>
-            <div>
-              <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
-            </div>
-            <div>
-              <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-            </div>
-            <input type="submit" value="Sign Me Up!" className="button" />
-          </form>
+                <input className="auth-input" name="FirstName" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+              </div>
+              <label className="auth-label" for="lastName">last name</label>
+                <div>
+                <input className="auth-input" name="LastName" value={this.state.lastName} onChange={this.handleLastNameChange} />
+              </div>
+              <label className="auth-label" for="email">email</label>
+              <div>
+                <input className="auth-input" name="Email" value={this.state.email} onChange={this.handleEmailChange} />
+              </div>
+              <label className="auth-label" for="password">password</label>
+              <div>
+                <input className="auth-input" name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+              </div>
+              <input type="submit" value="Sign Me Up!" className="button home-link" />
+            </form>
+          </div>
         </div>
       );
   }
