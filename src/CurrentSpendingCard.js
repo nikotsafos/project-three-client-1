@@ -23,6 +23,8 @@ export default class CurrentSpendingCard extends Component {
     const food = [];
     const shopping = [];
     const entertainment = [];
+    const allCosts = [];
+    var totalSpending = [];
 
     this.state.spending.forEach(c =>{
       if (c.category === 'transportation') {
@@ -37,6 +39,11 @@ export default class CurrentSpendingCard extends Component {
         entertainment.push(c.amount)}
   });
 
+    this.state.spending.forEach(i => {
+        allCosts.push(i.amount)
+    })
+
+  allCosts.reduce((total, inc) => totalSpending = total + inc, 0);
 
 
   console.log(food) 
@@ -51,7 +58,7 @@ export default class CurrentSpendingCard extends Component {
        <p>Transportation: {transportation.reduce((total, inc) => {return total + inc}, 0 )}</p>
        <p>Entertainment: {entertainment.reduce((total, inc) => {return total + inc}, 0 )}</p>
        <p>Shopping: {shopping.reduce((total, inc) => {return total + inc}, 0 )}</p>
-        
+        <p>Total: {totalSpending} </p>
      
       </div>
 

@@ -6,6 +6,7 @@ import ExpenditureForm from './ExpenditureForm';
 import SpendingItems from './components/SpendingItems';
 import Adding from './components/Adding';
 import DoughnutChart from './DoughnutChart';
+import moment from 'moment';
 
 const myExpenses = [
 {	name: 'housing',
@@ -50,6 +51,7 @@ class UserHome extends Component {
     return(
     	<div>
 	       <h1> HOME </h1>
+	       <h3> {moment().format('MMMM')}</h3>
 	       <div class="budgetWrapper">
 	      	   <DoughnutChart budget={this.props.budget} />
 		       <BudgetCard  budget={this.props.budget}
