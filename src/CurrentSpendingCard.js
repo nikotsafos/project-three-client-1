@@ -9,8 +9,9 @@ export default class CurrentSpendingCard extends Component {
   }
 
   componentDidMount() {
-    axios.post('http://localhost:3000/spending/post')
+    axios.post('http://localhost:3000/spending/post', this.props.user)
       .then(res => {
+        console.log("RES.DATA IS =====>",res.data);
         const spending = res.data;
         this.setState({ spending });
       })
@@ -27,20 +28,20 @@ export default class CurrentSpendingCard extends Component {
     var totalSpending = [];
 
     this.state.spending.forEach(c =>{
-      if (c.category === 'transportation' && moment(c.date).format("MMMM") === "September") {
+      if (c.category === 'transportation' && moment(c.date).format("MMMM") === moment().format('MMMM')) {
         transportation.push(c.amount)
-      } else if (c.category == 'housing' && moment(c.date).format("MMMM") === "September") {
+      } else if (c.category == 'housing' && moment(c.date).format("MMMM") === moment().format('MMMM')) {
         housing.push(c.amount)
-      } else if (c.category == 'food'&& moment(c.date).format("MMMM") === "September") {
+      } else if (c.category == 'food'&& moment(c.date).format("MMMM") === moment().format('MMMM')) {
         food.push(c.amount)
-      } else if (c.category == 'shopping' && moment(c.date).format("MMMM") === "September") {
+      } else if (c.category == 'shopping' && moment(c.date).format("MMMM") === moment().format('MMMM')) {
         shopping.push(c.amount)
-      } else if (c.category == 'entertainment' && moment(c.date).format("MMMM") === "September") {
+      } else if (c.category == 'entertainment' && moment(c.date).format("MMMM") === moment().format('MMMM')) {
         entertainment.push(c.amount)}
   });
 
     this.state.spending.forEach(i => {
-        if(moment(i.date).format("MMMM") === "September"){
+        if(moment(i.date).format("MMMM") === moment().format('MMMM')){
          allCosts.push(i.amount);
         }
     })
@@ -48,7 +49,7 @@ export default class CurrentSpendingCard extends Component {
   allCosts.reduce((total, inc) => totalSpending = total + inc, 0);
 
 
-  console.log(food)
+  console.log(food);
 
 
     return (
@@ -57,7 +58,8 @@ export default class CurrentSpendingCard extends Component {
       <h3>Current Spending </h3>
        <p>Housing: {housing.reduce((total, inc) => {return total + inc}, 0 )}</p>
        <p>Food: {food.reduce((total, inc) => {return total + inc}, 0 )}</p>
-       <p>Transportation: {transportation.reduce((total, inc) => {return total + inc}, 0 )}</p>
+       <p>Transportation: {transportation[0]}</p>
+       {/*<p>Transportation: {transportation.reduce((total, inc) => {return total + inc}, 0 )}</p>*/}
        <p>Entertainment: {entertainment.reduce((total, inc) => {return total + inc}, 0 )}</p>
        <p>Shopping: {shopping.reduce((total, inc) => {return total + inc}, 0 )}</p>
         <p>Total: {totalSpending} </p>

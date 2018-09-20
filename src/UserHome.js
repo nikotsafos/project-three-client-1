@@ -60,6 +60,7 @@ class UserHome extends Component {
 		       <CurrentSpendingCard
 		       		title="Current Spending"
 		       		array={myExpenses}
+		       		user={this.props.user}
 		      />
 		      </div>
 		       <div class="formWrapper">
