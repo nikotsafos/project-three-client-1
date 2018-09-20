@@ -112,13 +112,21 @@ class Spending extends Component {
 			}
 		})
 
-		const savings= [];
-		var savings_total = 0;
+		const savings_sep= [];
+		const savings_aug= [];
+		var savingsSep_total = 0;
+		var savingsAug_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "savings"){
-				savings.push(item);
-				savings_total += item.amount;
-				total_spending_sep += item.amount;
+				if(moment(item.date).format("MMMM") === "September") {
+					savings_sep.push(item);
+					savingsSep_total += item.amount;
+					total_spending_sep += item.amount;
+				} else if (moment(item.date).format("MMMM") === "August") {
+					savings_aug.push(item);
+					savingsAug_total += item.amount;
+					total_spending_aug += item.amount;
+				}
 			}
 		})
 
@@ -206,7 +214,15 @@ class Spending extends Component {
 		})
 
 		
-		const savingsJSX = savings.map( spending => {
+		const savingsJSX_sep = savings_sep.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+
+		const savingsJSX_aug = savings_aug.map( spending => {
 			return(		
 				<div>				
 					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
@@ -247,8 +263,8 @@ class Spending extends Component {
 					Total: ${transportationSep_total}
 
 					<h1>Savings</h1>
-					{savingsJSX}
-					Total: ${savings_total}
+					{savingsJSX_sep}
+					Total: ${savingsSep_total}
 					<hr/>
 					<h2>Total spending on September: ${total_spending_sep}</h2>
 
@@ -275,7 +291,9 @@ class Spending extends Component {
 					{transportationJSX_aug}
 					Total: ${transportationAug_total}
 
-
+					<h1>Savings</h1>
+					{savingsJSX_aug}
+					Total: ${savingsAug_total}
 					<hr/>
 					<h2>Total Spending on August: ${total_spending_aug}</h2>
 					<hr/>
