@@ -233,7 +233,7 @@ class Spending extends Component {
 		return(
 			<div>
 				<div>
-					<h1>Adding your spending</h1>
+					
 					<SpendingItems user={this.props.user} />
 				</div>
 

@@ -10,6 +10,7 @@ class Adding extends Component {
 			transportationBudget : '',
 			entertainmentBudget : '',
 			shoppingBudget : '',
+			savingsBudget: '',
 			userId: ''
  		}
 	}
@@ -69,6 +70,10 @@ class Adding extends Component {
 
 					<label for="shoppingBudget">Shopping Budget:</label>
 					<input type="number" name="shoppingBudget" value={this.state.ShoppingBudget} onChange={this.handleChange} /><br />
+
+					<label for="savingsBudget">Saving Budget:</label>
+					<input type="number" name="savingsBudget" value={this.state.savingsBudget} onChange={this.handleChange} /> <br />
+
 {/*
 					<label for="addingMoney">Adding Money:</label>
 					<input type="number" name="addingMoney" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br /><br />
