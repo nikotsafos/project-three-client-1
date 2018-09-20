@@ -9,7 +9,13 @@ class Spending extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('http://localhost:3000/spending')
+		console.log("DO WE HAVE A USER??", this.props.user);
+		// axios.get('http://localhost:3000/spending', this.props.user)
+		// 	.then(res => {
+		// 		const spending = res.data;
+		// 		this.setState({ spending });
+		// 	})
+		axios.post('http://localhost:3000/spending/post', this.props.user)
 			.then(res => {
 				const spending = res.data;
 				this.setState({ spending });
@@ -142,6 +148,7 @@ class Spending extends Component {
 			return(		
 				<div>				
 					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+
 				</div>
 			)
 		})
@@ -154,6 +161,7 @@ class Spending extends Component {
 				</div>
 			)
 		})
+
 
 		const housingJSX_aug = housing_aug.map( spending => {
 			return(		
@@ -209,6 +217,8 @@ class Spending extends Component {
 			return(		
 				<div>				
 					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+
+
 				</div>
 			)
 		})
@@ -226,6 +236,7 @@ class Spending extends Component {
 			return(		
 				<div>				
 					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+
 				</div>
 			)
 		})
@@ -255,8 +266,10 @@ class Spending extends Component {
 					Total: ${entertainmentSep_total}
 
 					<h1>Shopping</h1>
+
 					{shoppingJSX_sep}
 					Total: ${shoppingSep_total}	
+
 
 					<h1>Transportation</h1>
 					{transportationJSX_sep}
@@ -274,6 +287,8 @@ class Spending extends Component {
 					<h1>Housing</h1>
 					{ housingJSX_aug }
 					Total: ${housingAug_total}
+
+
 
 					<h1>Food</h1>
 					{ foodJSX_aug }
@@ -299,7 +314,7 @@ class Spending extends Component {
 					<hr/>
 
 					<br/><br/><br/><br/>	
-						
+
 				</div>
 
 
