@@ -24,18 +24,18 @@ class Profile extends Component {
       })
   }
   render() {
- 
+
     console.log("RENDER STATE", this.state);
     if(this.props.user){
       return (
           <div>
             <h2>Hello again, {this.props.user.firstName}!</h2>
            <div>
-           
+
       </div>
 
            <UserHome budget={this.state.budget} user={this.props.user}/>
-                
+
           </div>
         );
     }

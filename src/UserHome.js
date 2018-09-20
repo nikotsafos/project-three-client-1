@@ -7,6 +7,7 @@ import SpendingItems from './components/SpendingItems';
 import Adding from './components/Adding';
 import DoughnutChart from './DoughnutChart';
 import moment from 'moment';
+import BarChart from './BarChart';
 
 const myExpenses = [
 {	name: 'housing',

@@ -9,7 +9,7 @@ export default class CurrentSpendingCard extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/spending')
+    axios.post('http://localhost:3000/spending/post')
       .then(res => {
         const spending = res.data;
         this.setState({ spending });
@@ -46,7 +46,7 @@ export default class CurrentSpendingCard extends Component {
   allCosts.reduce((total, inc) => totalSpending = total + inc, 0);
 
 
-  console.log(food) 
+  console.log(food)
 
 
     return (
@@ -59,7 +59,7 @@ export default class CurrentSpendingCard extends Component {
        <p>Entertainment: {entertainment.reduce((total, inc) => {return total + inc}, 0 )}</p>
        <p>Shopping: {shopping.reduce((total, inc) => {return total + inc}, 0 )}</p>
         <p>Total: {totalSpending} </p>
-     
+
       </div>
 
     )
