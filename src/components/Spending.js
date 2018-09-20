@@ -9,7 +9,13 @@ class Spending extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('http://localhost:3000/spending')
+		console.log("DO WE HAVE A USER??", this.props.user);
+		// axios.get('http://localhost:3000/spending', this.props.user)
+		// 	.then(res => {
+		// 		const spending = res.data;
+		// 		this.setState({ spending });
+		// 	})
+		axios.post('http://localhost:3000/spending/post', this.props.user)
 			.then(res => {
 				const spending = res.data;
 				this.setState({ spending });
@@ -26,9 +32,9 @@ class Spending extends Component {
 			}
 		})
 		const entertainmentJSX = entertainment.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
@@ -42,13 +48,13 @@ class Spending extends Component {
 			}
 		})
 		const housingJSX = housing.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
-				
+
 		const food = [];
 		var food_total = 0;
 		this.state.spending.forEach( item => {
@@ -58,13 +64,13 @@ class Spending extends Component {
 			}
 		})
 		const foodJSX = food.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
-		
+
 		const shopping = [];
 		var shopping_total = 0;
 		this.state.spending.forEach( item => {
@@ -74,13 +80,13 @@ class Spending extends Component {
 			}
 		})
 		const shoppingJSX = shopping.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
-						
+
 		const transportation = [];
 		var transportation_total = 0;
 		this.state.spending.forEach( item => {
@@ -90,9 +96,9 @@ class Spending extends Component {
 			}
 		})
 		const transportationJSX = transportation.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
@@ -106,9 +112,9 @@ class Spending extends Component {
 			}
 		})
 		const savingsJSX = savings.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
@@ -136,7 +142,7 @@ class Spending extends Component {
 
 					<h1>Shopping</h1>
 					{shoppingJSX}
-					Total: ${shopping_total}	
+					Total: ${shopping_total}
 
 					<h1>Transportation</h1>
 					{transportationJSX}
@@ -146,7 +152,7 @@ class Spending extends Component {
 					{savingsJSX}
 					Total: ${savings_total}
 
-					<br/><br/><br/><br/>		
+					<br/><br/><br/><br/>
 				</div>
 
 			</div>
