@@ -94,13 +94,21 @@ class Spending extends Component {
 			}
 		})
 
-		const transportation = [];
-		var transportation_total = 0;
+		const transportation_sep = [];
+		const transportation_aug = [];
+		var transportationSep_total = 0;
+		var transportationAug_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "transportation"){
-				transportation.push(item);
-				transportation_total += item.amount;
-				total_spending_sep += item.amount;
+				if(moment(item.date).format("MMMM") === "September") {
+					transportation_sep.push(item);
+					transportationSep_total += item.amount;
+					total_spending_sep += item.amount;
+				} else if (moment(item.date).format("MMMM") === "August") {
+					transportation_aug.push(item);
+					transportationAug_total += item.amount;
+					total_spending_aug += item.amount;
+				}
 			}
 		})
 
@@ -181,7 +189,15 @@ class Spending extends Component {
 		})
 						
 		
-		const transportationJSX = transportation.map( spending => {
+		const transportationJSX_sep = transportation_sep.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+
+		const transportationJSX_aug = transportation_aug.map( spending => {
 			return(		
 				<div>				
 					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
@@ -208,29 +224,6 @@ class Spending extends Component {
 				<div>
 
 
-					<h2>August Spending</h2>
-
-					<h1>Housing</h1>
-					{ housingJSX_aug }
-					Total: ${housingAug_total}
-
-					<h1>Food</h1>
-					{ foodJSX_aug }
-					Total: ${foodAug_total}
-
-					<h1>Entertainment</h1>
-					{ entertainmentJSX_aug }
-					Total: ${entertainmentAug_total}
-
-					<h1>Shopping</h1>
-					{shoppingJSX_aug}
-					Total: ${shoppingAug_total}
-
-
-					<hr/>
-					<h2>Total Spending on August: ${total_spending_aug}</h2>
-					<hr/>
-
 					<h2>{moment().format('MMMM')} Spending</h2>
 					<h1>Housing</h1>
 					{ housingJSX_sep }
@@ -250,8 +243,8 @@ class Spending extends Component {
 					Total: ${shoppingSep_total}	
 
 					<h1>Transportation</h1>
-					{transportationJSX}
-					Total: ${transportation_total}
+					{transportationJSX_sep}
+					Total: ${transportationSep_total}
 
 					<h1>Savings</h1>
 					{savingsJSX}
@@ -259,6 +252,33 @@ class Spending extends Component {
 					<hr/>
 					<h2>Total spending on September: ${total_spending_sep}</h2>
 
+					<hr/>
+					<h2>August Spending</h2>
+
+					<h1>Housing</h1>
+					{ housingJSX_aug }
+					Total: ${housingAug_total}
+
+					<h1>Food</h1>
+					{ foodJSX_aug }
+					Total: ${foodAug_total}
+
+					<h1>Entertainment</h1>
+					{ entertainmentJSX_aug }
+					Total: ${entertainmentAug_total}
+
+					<h1>Shopping</h1>
+					{shoppingJSX_aug}
+					Total: ${shoppingAug_total}
+
+					<h1>Transportation</h1>
+					{transportationJSX_aug}
+					Total: ${transportationAug_total}
+
+
+					<hr/>
+					<h2>Total Spending on August: ${total_spending_aug}</h2>
+					<hr/>
 
 					<br/><br/><br/><br/>	
 						
