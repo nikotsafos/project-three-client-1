@@ -44,6 +44,7 @@ class SpendingItems extends Component {
 
 		return (
 			<div>
+				<h1>Adding your spending</h1>
 				<form  onSubmit={this.handleSubmit}>
 						<label for="category">Category:</label>
 {/*						<select name="category" form="spending" value="Category">

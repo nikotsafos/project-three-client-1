@@ -23,98 +23,220 @@ class Spending extends Component {
 	}
 
 	render() {
-		const entertainment = [];
-		var entertainment_total = 0;
+		var total_spending_sep= 0;
+		var total_spending_aug= 0;
+		const entertainment_sep = [];
+		const entertainment_aug = [];
+	//	const entertainment_month = [];
+		var entertainmentSep_total = 0;
+		var entertainmentAug_total = 0;
+	//	for (let i = 0; i< month; i++ ){
 		this.state.spending.forEach( item => {
 			if(item.category === "entertainment"){
-				entertainment.push(item);
-				entertainment_total += item.amount
+				if(moment(item.date).format("MMMM") === "September") {
+					entertainment_sep.push(item);
+					entertainmentSep_total += item.amount;
+					total_spending_sep += item.amount;
+				} else if (moment(item.date).format("MMMM") === "August") {
+					entertainment_aug.push(item);
+					entertainmentAug_total += item.amount;
+					total_spending_aug += item.amount;
+				}
 			}
 		})
-		const entertainmentJSX = entertainment.map( spending => {
-			return(
-				<div>
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
-				</div>
-			)
-		})
+	//}
 
-		const housing = [];
-		var housing_total = 0;
+		const housing_sep = [];
+		const housing_aug = [];
+		var housingSep_total = 0;
+		var housingAug_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "housing"){
-				housing.push(item);
-				housing_total += item.amount
+				if(moment(item.date).format("MMMM") === "September") {
+					housing_sep.push(item);
+					housingSep_total += item.amount
+					total_spending_sep += item.amount;
+				} else if (moment(item.date).format("MMMM") === "August") {
+					housing_aug.push(item);
+					housingAug_total += item.amount
+					total_spending_aug += item.amount;
+				}
 			}
 		})
-		const housingJSX = housing.map( spending => {
-			return(
-				<div>
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
-				</div>
-			)
-		})
 
-		const food = [];
-		var food_total = 0;
+		const food_sep = [];
+		const food_aug = [];
+		var foodSep_total = 0;
+		var foodAug_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "food"){
-				food.push(item);
-				food_total += item.amount
+				if(moment(item.date).format("MMMM") === "September") {
+					food_sep.push(item);
+					foodSep_total += item.amount
+					total_spending_sep += item.amount;
+				} else if (moment(item.date).format("MMMM") === "August") {
+					food_aug.push(item);
+					foodAug_total += item.amount
+					total_spending_aug += item.amount;
+				}
 			}
 		})
-		const foodJSX = food.map( spending => {
-			return(
-				<div>
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
-				</div>
-			)
-		})
 
-		const shopping = [];
-		var shopping_total = 0;
+		const shopping_sep = [];
+		const shopping_aug = [];
+		var shoppingSep_total = 0;
+		var shoppingAug_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "shopping"){
-				shopping.push(item);
-				shopping_total += item.amount
+				if(moment(item.date).format("MMMM") === "September") {
+					shopping_sep.push(item);
+					shoppingSep_total += item.amount;
+					total_spending_sep += item.amount;
+				} else if (moment(item.date).format("MMMM") === "August") {
+					shopping_aug.push(item);
+					shoppingAug_total += item.amount;
+					total_spending_aug += item.amount;
+				}
 			}
 		})
-		const shoppingJSX = shopping.map( spending => {
-			return(
-				<div>
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
-				</div>
-			)
-		})
 
-		const transportation = [];
-		var transportation_total = 0;
+		const transportation_sep = [];
+		const transportation_aug = [];
+		var transportationSep_total = 0;
+		var transportationAug_total = 0;
 		this.state.spending.forEach( item => {
 			if(item.category === "transportation"){
-				transportation.push(item);
-				transportation_total += item.amount
+				if(moment(item.date).format("MMMM") === "September") {
+					transportation_sep.push(item);
+					transportationSep_total += item.amount;
+					total_spending_sep += item.amount;
+				} else if (moment(item.date).format("MMMM") === "August") {
+					transportation_aug.push(item);
+					transportationAug_total += item.amount;
+					total_spending_aug += item.amount;
+				}
 			}
 		})
-		const transportationJSX = transportation.map( spending => {
-			return(
-				<div>
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
+
+		const savings_sep= [];
+		const savings_aug= [];
+		var savingsSep_total = 0;
+		var savingsAug_total = 0;
+		this.state.spending.forEach( item => {
+			if(item.category === "savings"){
+				if(moment(item.date).format("MMMM") === "September") {
+					savings_sep.push(item);
+					savingsSep_total += item.amount;
+					total_spending_sep += item.amount;
+				} else if (moment(item.date).format("MMMM") === "August") {
+					savings_aug.push(item);
+					savingsAug_total += item.amount;
+					total_spending_aug += item.amount;
+				}
+			}
+		})
+
+
+		const entertainmentJSX_sep = entertainment_sep.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+		const entertainmentJSX_aug= entertainment_aug.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+
 				</div>
 			)
 		})
 
-		const savings= [];
-		var savings_total = 0;
-		this.state.spending.forEach( item => {
-			if(item.category === "savings"){
-				savings.push(item);
-				savings_total += item.amount
-			}
+
+		const housingJSX_sep = housing_sep.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
 		})
-		const savingsJSX = savings.map( spending => {
-			return(
-				<div>
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
+
+
+		const housingJSX_aug = housing_aug.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+		
+		const foodJSX_sep = food_sep.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+
+		const foodJSX_aug = food_aug.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+		
+		
+		const shoppingJSX_sep = shopping_sep.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+
+		const shoppingJSX_aug = shopping_aug.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+						
+		
+		const transportationJSX_sep = transportation_sep.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+
+		const transportationJSX_aug = transportation_aug.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+
+
+				</div>
+			)
+		})
+
+		
+		const savingsJSX_sep = savings_sep.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+				</div>
+			)
+		})
+
+		const savingsJSX_aug = savings_aug.map( spending => {
+			return(		
+				<div>				
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+
 				</div>
 			)
 		})
@@ -122,38 +244,79 @@ class Spending extends Component {
 		return(
 			<div>
 				<div>
-					<h1>Adding your spending</h1>
+					
 					<SpendingItems user={this.props.user} />
 				</div>
 
 				<div>
+
+
+					<h2>{moment().format('MMMM')} Spending</h2>
 					<h1>Housing</h1>
-					{housingJSX }
-					Total: ${housing_total}
+					{ housingJSX_sep }
+					Total: ${housingSep_total}
 
 					<h1>Food</h1>
-					{foodJSX }
-					Total: ${food_total}
+					{ foodJSX_sep }
+					Total: ${foodSep_total}
 
 
 					<h1>Entertainment</h1>
-					{entertainmentJSX}
-					Total: ${entertainment_total}
+					{ entertainmentJSX_sep }
+					Total: ${entertainmentSep_total}
 
 					<h1>Shopping</h1>
-					{shoppingJSX}
-					Total: ${shopping_total}
+
+					{shoppingJSX_sep}
+					Total: ${shoppingSep_total}	
+
 
 					<h1>Transportation</h1>
-					{transportationJSX}
-					Total: ${transportation_total}
+					{transportationJSX_sep}
+					Total: ${transportationSep_total}
 
 					<h1>Savings</h1>
-					{savingsJSX}
-					Total: ${savings_total}
+					{savingsJSX_sep}
+					Total: ${savingsSep_total}
+					<hr/>
+					<h2>Total spending on September: ${total_spending_sep}</h2>
 
-					<br/><br/><br/><br/>
+					<hr/>
+					<h2>August Spending</h2>
+
+					<h1>Housing</h1>
+					{ housingJSX_aug }
+					Total: ${housingAug_total}
+
+
+
+					<h1>Food</h1>
+					{ foodJSX_aug }
+					Total: ${foodAug_total}
+
+					<h1>Entertainment</h1>
+					{ entertainmentJSX_aug }
+					Total: ${entertainmentAug_total}
+
+					<h1>Shopping</h1>
+					{shoppingJSX_aug}
+					Total: ${shoppingAug_total}
+
+					<h1>Transportation</h1>
+					{transportationJSX_aug}
+					Total: ${transportationAug_total}
+
+					<h1>Savings</h1>
+					{savingsJSX_aug}
+					Total: ${savingsAug_total}
+					<hr/>
+					<h2>Total Spending on August: ${total_spending_aug}</h2>
+					<hr/>
+
+					<br/><br/><br/><br/>	
+
 				</div>
+
 
 			</div>
 		);
