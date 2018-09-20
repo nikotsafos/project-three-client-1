@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 
 export default class CurrentSpendingCard extends Component {
@@ -42,6 +43,7 @@ export default class CurrentSpendingCard extends Component {
 
 
     return (
+
       <div>
       <h3>Current Spending </h3>
        <p>Housing: {housing.reduce((total, inc) => {return total + inc}, 0 )}</p>
@@ -52,6 +54,7 @@ export default class CurrentSpendingCard extends Component {
         
      
       </div>
+
     )
   }
 }

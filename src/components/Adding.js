@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 
 class Adding extends Component {
@@ -37,8 +38,6 @@ class Adding extends Component {
 	}
 
 
-
-
 	render() {
 		return(
 			<div>
@@ -55,8 +54,10 @@ class Adding extends Component {
 
 					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button>
 				</form>
-	
-			</div>
+
+		</div>
+
+
 		);
 	}
 }
