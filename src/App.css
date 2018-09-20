@@ -1,4 +1,7 @@
 /* CUSTOM STYLES */
+body {
+    font-family: 'Lato', sans-serif;
+}
 nav {
   width: 100%;
   background-color: #555;
@@ -50,11 +53,6 @@ nav a:hover {
 /* DEFAULT STYLES */
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 
 .App-header {
@@ -154,4 +152,30 @@ nav a:hover {
   color: white;
   font-size: 14px;
 
+}
+
+/*  TABLE STYLES */
+
+td {
+  padding:10px 10px 10px 0;
+  text-align: right;
+}
+
+.Housing {
+  background-color: #7BC8E2;
+}
+.Entertainment {
+  background-color: #F49A43;
+}
+.Food {
+  background-color: #1D9498;
+}
+.Shopping {
+  background-color: #213075;
+}
+.Transportation {
+  background-color: #ED592B;
+}
+.Savings {
+  background-color: #c23ce8;
 }
