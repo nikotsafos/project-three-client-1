@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const categories = [
-"housing", "food", "transportation", "entertainment", "shopping", "savings"
+"Housing", "Food", "Transportation", "Entertainment", "Shopping", "Savings"
 ]
 var total = 0;
 var objectNum = -1;
@@ -16,19 +16,23 @@ class BudgetCard extends Component {
     return(
     	<div>
         	<h3>Monthly Budget</h3>
-
+          <table>
         	{Object.keys(this.props.budget).map(key => {
 
     			return total += parseInt(this.props.budget[key]),
     			objectNum += 1,
-    			<p>{categories[objectNum]}:  {this.props.budget[key]}</p>;
+      			<tr>
+              <td>{categories[objectNum]}</td> 
+              <td>{this.props.budget[key]}</td>
+              <td className={categories[objectNum]}></td>
+            </tr>;
 
 			})}
 
 
+          <tr><td>total:</td> <td>{total}</td> </tr>
 
-			<p>total: {total} </p>
-
+          </table>
 
         </div>
       );

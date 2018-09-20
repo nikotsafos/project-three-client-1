@@ -3,9 +3,6 @@ import UserHome from './UserHome.js';
 import axios from 'axios';
 import '../node_modules/react-vis/dist/style.css';
 
-
-
-
 class Profile extends Component {
   constructor(props) {
     super(props);

@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
 import BudgetCard from './BudgetCard';
 import CurrentSpendingCard from './CurrentSpendingCard';
-import IncomeForm from './IncomeForm';
-import ExpenditureForm from './ExpenditureForm';
 import SpendingItems from './components/SpendingItems';
 import Adding from './components/Adding';
 import DoughnutChart from './DoughnutChart';
 import moment from 'moment';
 import BarChart from './BarChart';
 
-const myExpenses = [
-{	name: 'housing',
-	amt: 1200,
-	id: 0	},
-{	name: 'food',
-	amt: 300,
-	id: 1	},
-{	name: 'entertainment',
-	amt: 80,
-	id: 2	},
-{	name: 'shopping',
-	amt: 240,
-	id: 3	},
-{	name: 'transportation',
-	amt: 100,
-	id: 4	},
-{	name: 'savings',
-	amt: 200,
-	id: 5	},
-
-]
 
 
 class UserHome extends Component {
@@ -40,26 +17,27 @@ class UserHome extends Component {
 		}
 	}
 
-	componentDidMount() {
-		this.setState({
-			allExpenses: myExpenses
-		}, () => console.log("OTHER STATE", this.state.totalExpenses))
-	}
-
+	
 
   render() {
 
     return(
     	<div>
-	       <h1> HOME </h1>
-	       <h3> {moment().format('MMMM')}</h3>
+	       <h3> {moment().format('MMMM')} Overview</h3>
 	       <div class="budgetWrapper">
-	      	   <DoughnutChart budget={this.props.budget} />
+	      	   <DoughnutChart 
+	      	   		housing={this.props.budget.housingBudget}
+	      	   		transportation={this.props.budget.transportationBudget}
+	      	   		entertainment={this.props.budget.entertainmentBudget}
+	      	   		shopping={this.props.budget.shoppingBudget}
+	      	   		food={this.props.budget.foodBudget}
+	      	   		savings={this.props.budget.savingsBudget} />
+
 		       <BudgetCard  budget={this.props.budget}
 		       	/>
 		       <CurrentSpendingCard
 		       		title="Current Spending"
-		       		array={myExpenses}
+		       
 		      />
 		      </div>
 		       <div class="formWrapper">
