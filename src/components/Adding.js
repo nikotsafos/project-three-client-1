@@ -28,7 +28,10 @@ class Adding extends Component {
 
 	handleSubmit = (e) => {
 		console.log(this.state);
-		axios.post('http://localhost:3000/money/all', this.state)
+		let token = localStorage.getItem('mernToken') || ''
+		axios.post('http://localhost:3000/money/all',  {
+			headers: { 'Authorization': `Bearer ${token}` }
+		}, this.state)
 		.then(result => {
 			console.log(result);
 		})

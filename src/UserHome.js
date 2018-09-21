@@ -14,6 +14,7 @@ class UserHome extends Component {
 
   render() {
 
+
   	 let userBudget;
      if(this.props.user){
             userBudget = <div><DoughnutChart 
@@ -42,6 +43,7 @@ class UserHome extends Component {
 		       <CurrentSpendingCard
 		       		title="Current Spending"
 		       		user={this.props.user} />
+
 		      </div>
 		       <div className="formWrapper">
 		       	   <SpendingItems user={this.props.user} />

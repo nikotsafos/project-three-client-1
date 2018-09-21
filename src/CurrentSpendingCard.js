@@ -11,7 +11,12 @@ export default class CurrentSpendingCard extends Component {
   }
 
   componentDidMount() {
-    axios.post('http://localhost:3000/spending/post', this.props.user)
+
+    let token = localStorage.getItem('mernToken') || ''
+		axios.post('http://localhost:3000/spending/post',  {
+			headers: { 'Authorization': `Bearer ${token}` }
+		})
+
       .then(res => {
         console.log("RES.DATA IS =====>",res.data);
         const spending = res.data;
