@@ -10,34 +10,38 @@ class Adding extends Component {
 			transportationBudget : '',
 			entertainmentBudget : '',
 			shoppingBudget : '',
-			savingsBudget: '',
-			userId: ''
+			savingsBudget: ''
  		}
 	}
 
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value,
-
 		})
 	}
 
-	componentDidMount(){
-		this.setState({
-			userId: this.props.user.id
-		})
-	}
+	// componentDidMount(){
+	// 	this.setState({
+	// 		userId: this.props.user.id
+	// 	})
+	// }
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.state);
-		axios.post('http://localhost:3000/budget', this.state)
+		let token = localStorage.getItem('mernToken') || ''
+		console.log('hello =====>', this.state, this.props.user);
+		axios.post('http://localhost:3000/budget/update',  {
+			headers: { 'Authorization': `Bearer ${token}` },
+			body: this.state
+		})
 		.then(result => {
 			console.log(result);
 		})
 		.catch(err => {
 			console.log('error');
 		});
+
+
 		// this.props.handleSubmit({
 		// 	totalMoney: this.state.totalMoney,
 		// 	housingBudget: this.state.housingBudget,

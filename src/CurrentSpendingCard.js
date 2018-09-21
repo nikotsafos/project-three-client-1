@@ -9,7 +9,10 @@ export default class CurrentSpendingCard extends Component {
   }
 
   componentDidMount() {
-    axios.post('http://localhost:3000/spending/post')
+    let token = localStorage.getItem('mernToken') || ''
+		axios.post('http://localhost:3000/spending/post',  {
+			headers: { 'Authorization': `Bearer ${token}` }
+		})
       .then(res => {
         const spending = res.data;
         this.setState({ spending });

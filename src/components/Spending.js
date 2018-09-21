@@ -9,18 +9,16 @@ class Spending extends Component {
 	}
 
 	componentDidMount() {
-		console.log("DO WE HAVE A USER??", this.props.user);
-		// axios.get('http://localhost:3000/spending', this.props.user)
-		// 	.then(res => {
-		// 		const spending = res.data;
-		// 		this.setState({ spending });
-		// 	})
-		axios.post('http://localhost:3000/spending/post', this.props.user)
+		let token = localStorage.getItem('mernToken') || ''
+		axios.post('http://localhost:3000/spending/post',  {
+			headers: { 'Authorization': `Bearer ${token}` }
+		})
 			.then(res => {
 				const spending = res.data;
 				this.setState({ spending });
 			})
 	}
+
 
 	render() {
 		var total_spending_sep= 0;
@@ -138,16 +136,16 @@ class Spending extends Component {
 
 
 		const entertainmentJSX_sep = entertainment_sep.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} <input type='button' onClick={() => this.handleDelete()} value="Delete"/></p>
 				</div>
 			)
 		})
 		const entertainmentJSX_aug= entertainment_aug.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} <input type='button' onClick={this.handleDelete} value="Delete"/></p>
 
 				</div>
 			)
@@ -155,87 +153,87 @@ class Spending extends Component {
 
 
 		const housingJSX_sep = housing_sep.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
 
 
 		const housingJSX_aug = housing_aug.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
-		
+
 		const foodJSX_sep = food_sep.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
 
 		const foodJSX_aug = food_aug.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
-		
-		
+
+
 		const shoppingJSX_sep = shopping_sep.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
 
 		const shoppingJSX_aug = shopping_aug.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
-						
-		
+
+
 		const transportationJSX_sep = transportation_sep.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
 
 		const transportationJSX_aug = transportation_aug.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 
 
 				</div>
 			)
 		})
 
-		
+
 		const savingsJSX_sep = savings_sep.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 				</div>
 			)
 		})
 
 		const savingsJSX_aug = savings_aug.map( spending => {
-			return(		
-				<div>				
-					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>			
+			return(
+				<div>
+					<p>Spending on: {spending.description}. Amount: ${spending.amount}. Date: {moment(spending.date).format("MMMM DD YYYY")} </p>
 
 				</div>
 			)
@@ -244,7 +242,7 @@ class Spending extends Component {
 		return(
 			<div>
 				<div>
-					
+
 					<SpendingItems user={this.props.user} />
 				</div>
 
@@ -268,7 +266,7 @@ class Spending extends Component {
 					<h1>Shopping</h1>
 
 					{shoppingJSX_sep}
-					Total: ${shoppingSep_total}	
+					Total: ${shoppingSep_total}
 
 
 					<h1>Transportation</h1>
@@ -313,7 +311,7 @@ class Spending extends Component {
 					<h2>Total Spending on August: ${total_spending_aug}</h2>
 					<hr/>
 
-					<br/><br/><br/><br/>	
+					<br/><br/><br/><br/>
 
 				</div>
 

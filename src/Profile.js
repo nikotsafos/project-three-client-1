@@ -4,8 +4,6 @@ import axios from 'axios';
 import '../node_modules/react-vis/dist/style.css';
 
 
-
-
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -14,25 +12,23 @@ class Profile extends Component {
     }
   }
 
-    componentDidMount() {
-    axios.get('http://localhost:3000/profile')
-      .then(res => {
-        const budget = res.data;
-        console.log("BUDGET", budget)
-        this.setState({ budget })
-
-      })
+  componentDidMount() {
+    let token = localStorage.getItem('mernToken')
+    console.log('getting budget info', token)
+    axios.post('http://localhost:3000/budget', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+    .then(res => {
+      this.setState({budget: res.data})
+    })
   }
-  render() {
 
-    console.log("RENDER STATE", this.state);
+  render() {
     if(this.props.user){
       return (
           <div>
             <h2>Hello again, {this.props.user.firstName}!</h2>
-           <div>
-
-      </div>
+           <div></div>
 
            <UserHome budget={this.state.budget} user={this.props.user}/>
 

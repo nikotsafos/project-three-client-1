@@ -64,7 +64,6 @@ class App extends Component {
       <div className="App">
         <Router>
           <div className="container">
-      
             <Nav user={this.state.user} updateUser={this.getUser} />
             <Route exact path="/" component={Home} />
 

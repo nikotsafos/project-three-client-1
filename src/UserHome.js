@@ -55,12 +55,11 @@ class UserHome extends Component {
 	       <h3> {moment().format('MMMM')}</h3>
 	       <div class="budgetWrapper">
 	      	   <DoughnutChart budget={this.props.budget} />
-		       <BudgetCard  budget={this.props.budget}
-		       	/>
-		       <CurrentSpendingCard
-		       		title="Current Spending"
-		       		array={myExpenses}
-		      />
+			       <BudgetCard  budget={this.props.budget} />
+			       <CurrentSpendingCard
+			       		title="Current Spending"
+			       		array={myExpenses}
+			      />
 		      </div>
 		       <div class="formWrapper">
 		       	   <SpendingItems user={this.props.user} />
