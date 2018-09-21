@@ -36,13 +36,23 @@ nav a:hover {
   margin-left: 2vw;
 }
 
+.donut {
+  width: 300px;
+}
 
 .budgetWrapper {
   margin: 20px;
   text-align: left;
   display: grid;
   grid-template-columns: 300px 300px 610px;
-  grid-template-rows: 350px;
+  grid-template-rows: 650px;
+}
+
+.current-wrapper {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 400px;
+
 }
 
 .bold {
@@ -54,16 +64,12 @@ nav a:hover {
   margin: 20px;
   text-align: left;
   display: grid;
-  grid-template-columns: 900px;
   grid-template-rows: 100px 100px 100px;
 }
 
-.current-wrapper {
-  display: grid;
-  grid-template-columns: 300px 300px;
-  grid-template-rows: 400px;
 
-}
+
+
 
 .footer {
   background-color: black;

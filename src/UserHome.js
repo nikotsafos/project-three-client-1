@@ -17,13 +17,15 @@ class UserHome extends Component {
 
   	 let userBudget;
      if(this.props.user){
-            userBudget = <div><DoughnutChart 
-	      	   		housing={this.props.budget.housingBudget}
-	      	   		transportation={this.props.budget.transportationBudget}
-	      	   		entertainment={this.props.budget.entertainmentBudget}
-	      	   		shopping={this.props.budget.shoppingBudget}
-	      	   		food={this.props.budget.foodBudget}
-	      	   		savings={this.props.budget.savingsBudget} />
+            userBudget = 
+            	<div>
+            		<DoughnutChart 
+		      	   		housing={this.props.budget.housingBudget}
+		      	   		transportation={this.props.budget.transportationBudget}
+		      	   		entertainment={this.props.budget.entertainmentBudget}
+		      	   		shopping={this.props.budget.shoppingBudget}
+		      	   		food={this.props.budget.foodBudget}
+		      	   		savings={this.props.budget.savingsBudget} />
 		       	</div>
 
       } else {
@@ -37,20 +39,22 @@ class UserHome extends Component {
 	       <div className="budgetWrapper">
 	      	  
 	       		{userBudget}
-	       		 <BudgetCard  budget={this.props.budget}
-		       	/>
 
-		       <CurrentSpendingCard
+	       		<BudgetCard  budget={this.props.budget} />
+
+		       	<CurrentSpendingCard
 		       		title="Current Spending"
-		       		user={this.props.user} />
+		       		user={this.props.user} 
+		       		budget={this.props.budget}/>
 
-		      </div>
-		       <div className="formWrapper">
+		    </div>
+
+		    <div className="formWrapper">
 		       	   <SpendingItems user={this.props.user} />
 		       	   <Adding user={this.props.user} />
-			   </div>
+			</div>
 			 
-		    </div>
+		</div>
 
       );
   }

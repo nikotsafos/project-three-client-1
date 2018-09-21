@@ -5,31 +5,52 @@ import {
   YAxis,
   HorizontalGridLines,
   VerticalGridLines,
-  LineSeries,
+  VerticalBarSeries
 } from 'react-vis';
 
+
 export default class Example extends React.Component {
+
   render() {
-    const Line = LineSeries;
+    const budgetArray = [];
+
+    console.log("BUDGET", this.props.budget)
+
+    const budget = [
+    {x: 'housing', y: this.props.budget.housingBudget}, 
+    {x: 'food', y: this.props.budget.foodBudget}, 
+    {x: 'transportation', y: this.props.budget.transportationBudget},
+    {x: 'entertainment', y: this.props.budget.entertainmentBudget},
+    {x: 'shopping', y: this.props.budget.shoppingBudget},
+    {x: 'savings', y: this.props.budget.savingsBudget},
+    ];
+
+    const spending = [
+        {x: 'housing', y: this.props.housing}, 
+        {x: 'food', y: this.props.food}, 
+        {x: 'transportation', y: this.props.transportation},
+        {x: 'entertainment', y: this.props.entertainment},
+        {x: 'shopping', y: this.props.shopping},
+        {x: 'savings', y: this.props.savings}
+        ];
+
+    const labelData = budget.map((d, idx) => ({
+      x: d.x,
+      y: (Math.max(budget[idx].y, spending[idx].y)) + 100
+    }));
+          
+
+    const BarSeries = VerticalBarSeries;
+
     return (
       <div>
-        
-        <XYPlot width={300} height={300}>
-          <HorizontalGridLines />
+        <XYPlot xType="ordinal" width={600} height={300} xDistance={100}>
           <VerticalGridLines />
-          <XAxis title="X Axis" position="start" />
-          <YAxis title="Y Axis" />
-          <Line
-            className="first-series"
-            data={[{x: 1, y: 600}, {x: 15, y: 1200}, {x: 17, y: 1400}, {x: 26, y: 1650}]}
-          />
-          <Line className="second-series" data={null} />
-          <Line
-            className="third-series"
-            curve={'curveMonotoneX'}
-            data={[{x: 1, y: 1100}, {x: 6, y: 1400}, {x: 9, y: 1450}, {x: 19, y: 1500}, {x: 27, y: 1590}]}
-          />
-        
+          <HorizontalGridLines />
+          <XAxis />
+          <YAxis />
+          <BarSeries className="vertical-bar-series-example" data={budget} />
+          <BarSeries data={spending} />
         </XYPlot>
       </div>
     );
