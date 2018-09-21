@@ -8,26 +8,24 @@ class DoughnutChart extends Component {
 
 render(){
    const {value} = this.state;
-   const housing = this.props.budget.housingBudget;
-   const transportation = this.props.budget.transportationBudget;
-   const entertainment = this.props.budget.entertainmentBudget;
-   const food = this.props.budget.foodBudget;
-   const shopping = this.props.budget.shoppingBudget;
+
+   const chartData = [
+  			  {theta: this.props.housing, label: 'Housing', color: '#7BC8E2'},
+		      {theta: this.props.food, label: 'Food', color: '#1D9498'},
+		      {theta: this.props.transportation, label: 'Transportation', color: '#ED592B'},
+		      {theta: this.props.entertainment, label: 'Entertainment', color: '#F49A43'},
+		      {theta: this.props.shopping, label: 'Shopping', color: '#4286f4'},
+		      {theta: this.props.savings, label: 'Savings', color: '#c23ce8'}]
 
  return (
  	<div>
 		<RadialChart
+			colorType='literal'
 		    className={'donut-chart-example'}
-		    innerRadius={100}
-		    radius={140}
+		    innerRadius={80}
+		    radius={120}
 		    getAngle={d => d.theta}
-		    data={[
-		      {theta: housing, Label: 'Housing'},
-		      {theta: transportation, Label: 'Transportation'},
-		      {theta: entertainment, Label: 'Entertainment'},
-		      {theta: shopping, Label: 'Shopping'},
-		      {theta: food, Label: 'Food'}
-		        ]}
+		    data={chartData}
 		    onValueMouseOver={v => this.setState({value: v})}
 		    onSeriesMouseOut={v => this.setState({value: false})}
 		    width={300}

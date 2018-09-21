@@ -10,9 +10,7 @@ import Nav from './layout/Nav';
 import Profile from './Profile';
 import Signup from './auth/Signup';
 import InitialPlanning from './components/InitialPlanning';
-import Adding from './components/Adding';
 import Spending from'./components/Spending';
-import SpendingItems from'./components/SpendingItems';
 import AllMoneyList from './components/AllMoneyList.js';
 
 class App extends Component {
@@ -60,11 +58,23 @@ class App extends Component {
   }
 
   render() {
+    let navigation;
+     if(this.state.user){
+            navigation = <Nav user={this.state.user} updateUser={this.getUser} />
+
+      } else {
+          navigation = null;
+      } 
+
+
     return (
       <div className="App">
         <Router>
           <div className="container">
-            <Nav user={this.state.user} updateUser={this.getUser} />
+
+            {navigation}
+             
+
             <Route exact path="/" component={Home} />
 
             <Route path="/adding" component={

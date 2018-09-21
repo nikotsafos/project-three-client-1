@@ -29,12 +29,14 @@ class SpendingItems extends Component {
 	}
 
 	handleSubmit = (e) => {
+
 		e.preventDefault();
 		let token = localStorage.getItem('mernToken') || ''
 		axios.post('http://localhost:3000/spending',  {
 			headers: { 'Authorization': `Bearer ${token}` },
 			body: this.state
 		})
+
 		.then(result => {
 			console.log(result);
 		})

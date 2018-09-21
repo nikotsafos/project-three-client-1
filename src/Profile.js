@@ -3,7 +3,6 @@ import UserHome from './UserHome.js';
 import axios from 'axios';
 import '../node_modules/react-vis/dist/style.css';
 
-
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -27,10 +26,7 @@ class Profile extends Component {
     if(this.props.user){
       return (
           <div>
-            <h2>Hello again, {this.props.user.firstName}!</h2>
-           <div></div>
-
-           <UserHome budget={this.state.budget} user={this.props.user}/>
+            <UserHome budget={this.state.budget} user={this.props.user}/>
 
           </div>
         );
