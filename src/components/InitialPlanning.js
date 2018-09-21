@@ -5,6 +5,7 @@ class Adding extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			budget: {},
 			housingBudget : '',
 			foodBudget : '',
 			transportationBudget : '',
@@ -20,11 +21,27 @@ class Adding extends Component {
 		})
 	}
 
-	// componentDidMount(){
-	// 	this.setState({
-	// 		userId: this.props.user.id
-	// 	})
-	// }
+	componentDidMount(){
+	 	  let token = localStorage.getItem('mernToken')
+    console.log('getting budget info', token)
+    axios.post('http://localhost:3000/budget', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+    .then(res => {
+      this.setState(
+      	{budget: res.data}
+      	)
+    }).then(res => {
+    	this.setState({
+    		housingBudget: this.state.budget.housingBudget,
+    		foodBudget: this.state.budget.foodBudget,
+    		transportationBudget: this.state.budget.transportationBudget,
+    		entertainmentBudget: this.state.budget.entertainmentBudget,
+    		shoppingBudget: this.state.budget.shoppingBudget,
+    		savingsBudget: this.state.budget.savingsBudget
+    	})
+    })
+  }
 
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -64,18 +81,18 @@ class Adding extends Component {
 					<input type="number" name="housingBudget" value={this.state.housingBudget} onChange={this.handleChange} /> <br />
 
 					<label for="FoodBudget">Food Budget:</label>
-					<input type="number" name="foodBudget" value={this.state.FoodBudget} onChange={this.handleChange} /><br />
+					<input type="number" name="foodBudget" value={this.state.foodBudget} onChange={this.handleChange} /><br />
 
 					<label for="transportationBudget">Transportation Budget:</label>
-					<input type="number" name="transportationBudget" value={this.state.TransportationBudget} onChange={this.handleChange} /> <br />
+					<input type="number" name="transportationBudget" value={this.state.transportationBudget} onChange={this.handleChange} /> <br />
 
 					<label for="entertainmentBudget">Entertainment Budget:</label>
-					<input type="number" name="entertainmentBudget" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br />
+					<input type="number" name="entertainmentBudget" value={this.state.entertainmentBudget} onChange={this.handleChange} /> <br />
 
 					<label for="shoppingBudget">Shopping Budget:</label>
-					<input type="number" name="shoppingBudget" value={this.state.ShoppingBudget} onChange={this.handleChange} /><br />
+					<input type="number" name="shoppingBudget" value={this.state.shoppingBudget} onChange={this.handleChange} /><br />
 
-					<label for="savingsBudget">Saving Budget:</label>
+					<label for="savingsBudget">Savings Budget:</label>
 					<input type="number" name="savingsBudget" value={this.state.savingsBudget} onChange={this.handleChange} /> <br />
 
 {/*

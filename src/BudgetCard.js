@@ -13,12 +13,12 @@ class BudgetCard extends Component {
     return(
     	<div>
         	<h3>Monthly Budget</h3>
-
+            <tbody>
 
         	{
             Object.keys(this.props.budget).map((key, index) => {
               total += parseInt(this.props.budget[key])
-      			  return (<p>{categories[index]}:  {this.props.budget[key]}</p>);
+      			  return (<tr><td>{categories[index]}</td>  <td>{this.props.budget[key]}</td><td className={categories[index]}></td></tr>);
             })
           }
 
