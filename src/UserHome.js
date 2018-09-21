@@ -6,37 +6,38 @@ import Adding from './components/Adding';
 import DoughnutChart from './DoughnutChart';
 import moment from 'moment';
 import BarChart from './BarChart';
+import CurrentAssetsCard from './CurrentAssetsCard';
 
 
 
-class UserHome extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-
-		}
-	}
-
-	
+class UserHome extends Component {	
 
   render() {
 
-    return(
-    	<div>
 
-	       <h1> HOME </h1>
-	
-	       <h2> {moment().format('MMMM')} Overview</h2>
-	       <div className="budgetWrapper">
-	      	   <DoughnutChart 
+  	 let userBudget;
+     if(this.props.user){
+            userBudget = <div><DoughnutChart 
 	      	   		housing={this.props.budget.housingBudget}
 	      	   		transportation={this.props.budget.transportationBudget}
 	      	   		entertainment={this.props.budget.entertainmentBudget}
 	      	   		shopping={this.props.budget.shoppingBudget}
 	      	   		food={this.props.budget.foodBudget}
 	      	   		savings={this.props.budget.savingsBudget} />
+		       	</div>
 
-		       <BudgetCard  budget={this.props.budget}
+      } else {
+          userBudget = <div>Set up your budget here</div>;
+      } 
+
+    return(
+    	<div>
+	       <h2> {moment().format('MMMM')} Overview</h2>
+			   <CurrentAssetsCard user={this.props.user} />
+	       <div className="budgetWrapper">
+	      	  
+	       		{userBudget}
+	       		 <BudgetCard  budget={this.props.budget}
 		       	/>
 
 		       <CurrentSpendingCard
@@ -48,7 +49,7 @@ class UserHome extends Component {
 		       	   <SpendingItems user={this.props.user} />
 		       	   <Adding user={this.props.user} />
 			   </div>
-
+			 
 		    </div>
 
       );
