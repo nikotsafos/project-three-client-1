@@ -26,12 +26,8 @@ class Profile extends Component {
     if(this.props.user){
       return (
           <div>
-            <h2>Hello again, {this.props.user.firstName}!</h2>
-           <div>
-
-      </div>
-
-           <UserHome budget={this.state.budget} user={this.props.user}/>
+    
+            <UserHome budget={this.state.budget} user={this.props.user}/>
 
           </div>
         );

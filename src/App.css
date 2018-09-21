@@ -4,28 +4,50 @@ body {
 }
 nav {
   width: 100%;
-  background-color: #555;
-  padding: 10px 0;
+  background-color: #e0b421;;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-around;
 }
 
 nav a {
   margin: 10px;
   text-decoration: none;
-  font-size: 20px;
-  color: chartreuse;
+  font-size: 18px;
+  padding: 9px;
+  color: white;
   cursor: pointer;
 }
 
 nav a:hover {
-  color: hotpink;
+  color: black;
 }
+
+.nav-logo {
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+    color: white;
+}
+
+.nav-id {
+  font-size: 14px;
+  color: white;
+  margin-left: 2vw;
+}
+
 
 .budgetWrapper {
   margin: 20px;
   text-align: left;
   display: grid;
-  grid-template-columns: 400px 400px 400px;
-  grid-template-rows: 400px;
+  grid-template-columns: 300px 300px 610px;
+  grid-template-rows: 350px;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .formWrapper {
@@ -36,6 +58,12 @@ nav a:hover {
   grid-template-rows: 100px 100px 100px;
 }
 
+.current-wrapper {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 400px;
+
+}
 
 .footer {
   background-color: black;
@@ -171,7 +199,7 @@ td {
   background-color: #1D9498;
 }
 .Shopping {
-  background-color: #213075;
+  background-color: #4286f4;
 }
 .Transportation {
   background-color: #ED592B;

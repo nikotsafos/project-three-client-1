@@ -10,17 +10,17 @@ render(){
    const {value} = this.state;
 
    const chartData = [
-  			  {theta: this.props.housing, label: 'Housing'},
-		      {theta: this.props.food, label: 'Food'},
-		      {theta: this.props.transportation, label: 'Transportation'},
-		      {theta: this.props.entertainment, label: 'Entertainment'},
-		      {theta: this.props.shopping, label: 'Shopping'},
-		      {theta: this.props.savings, label: 'Savings'}]
+  			  {theta: this.props.housing, label: 'Housing', color: '#7BC8E2'},
+		      {theta: this.props.food, label: 'Food', color: '#1D9498'},
+		      {theta: this.props.transportation, label: 'Transportation', color: '#ED592B'},
+		      {theta: this.props.entertainment, label: 'Entertainment', color: '#F49A43'},
+		      {theta: this.props.shopping, label: 'Shopping', color: '#4286f4'},
+		      {theta: this.props.savings, label: 'Savings', color: '#c23ce8'}]
 
  return (
  	<div>
 		<RadialChart
-			showLabels
+			colorType='literal'
 		    className={'donut-chart-example'}
 		    innerRadius={80}
 		    radius={120}

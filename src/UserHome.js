@@ -23,8 +23,8 @@ class UserHome extends Component {
 
     return(
     	<div>
-	       <h3> {moment().format('MMMM')} Overview</h3>
-	       <div class="budgetWrapper">
+	       <h2> {moment().format('MMMM')} Overview</h2>
+	       <div className="budgetWrapper">
 	      	   <DoughnutChart 
 	      	   		housing={this.props.budget.housingBudget}
 	      	   		transportation={this.props.budget.transportationBudget}
@@ -35,16 +35,16 @@ class UserHome extends Component {
 
 		       <BudgetCard  budget={this.props.budget}
 		       	/>
+
 		       <CurrentSpendingCard
 		       		title="Current Spending"
-		       		user={this.props.user}
-
-		      />
+		       		user={this.props.user} />
 		      </div>
-		       <div class="formWrapper">
+		       <div className="formWrapper">
 		       	   <SpendingItems user={this.props.user} />
 		       	   <Adding user={this.props.user} />
 			   </div>
+
 		    </div>
 
       );
