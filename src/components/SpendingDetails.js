@@ -1,75 +1,72 @@
 import React, { Component } from 'react';
-
+import moment from 'moment';
 export default class SpendingDetails extends Component {
 
   render() {
-// 		var month_list = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
+		var month_list = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
 
-// 		const month = 'December';
-// 		var months = [];
+		const month = moment().format("MMMM");
+		var months = [];
 
-// 		switch(month){
-//   			case 'January':
-//      			months = month_list.slice(0,1);
-//       			break;
-//   			case 'February':
-//       			months = month_list.slice(0,2);
-//       			break;
-//   			case 'March':
-//   				months = month_list.slice(0,3);
-//       			break;
-//   case 'April':
-//   months = month_list.slice(0,4);
-//       break;
-//   case 'May':
-//   months = month_list.slice(0,5);
-//       break;
-//   case 'June':
-//   months = month_list.slice(0,6);
-//       break;
-//   case 'July':
-//   months = month_list.slice(0,7);
-//       break;
-//   case 'August':
-//   months = month_list.slice(0,8);
-//       break;
-//   case 'September':
-//   months = month_list.slice(0,9);
-//       break;
-//   case 'October':
-//   months = month_list.slice(0,10);
-//       break;
-//   case 'November':
-//   months = month_list.slice(0,11);
-//       break;
-//   case 'December':
-//   months = month_list.slice(0,12);
-//       break;
-//     default:
-//       break;
-// }
+		switch(month){
+  			case 'January':
+     			  months = month_list.slice(0,1);
+      			break;
+  			case 'February':
+      			months = month_list.slice(0,2);
+      			break;
+  			case 'March':
+  				  months = month_list.slice(0,3);
+      			break;
+        case 'April':
+            months = month_list.slice(0,4);
+            break;
+        case 'May':
+            months = month_list.slice(0,5);
+            break;
+        case 'June':
+            months = month_list.slice(0,6);
+            break;
+        case 'July':
+            months = month_list.slice(0,7);
+            break;
+        case 'August':
+            months = month_list.slice(0,8);
+            break;
+        case 'September':
+            months = month_list.slice(0,9);
+            break;
+        case 'October':
+            months = month_list.slice(0,10);
+            break;
+        case 'November':
+            months = month_list.slice(0,11);
+            break;
+        case 'December':
+            months = month_list.slice(0,12);
+            break;
+        default:
+            break;
+}
 
-// console.log(months);
+
     let spending = this.props.spendingFunction();
-    // console.log('spendingByMonthTest:', spendingByMonthTest);
-    // console.log('spendingByMonth at September key:', spendingByMonthTest['September']);
+      const spendingItems9 = (spending) => {
+      let arr9 = []
+      for (let key in spending["September"]){
+      arr9.push({month: "September", data: {key: key, data: spending['September'][key]}})
+    }
+      console.log('array of result: ', arr9);
+      return arr9
+    }
 
-    // loop through spendingByMonth object. at each key, print <h1> displaying the key (month), 
-    // and loop through key value array, printing <h1> for category and <p> for spending details.
-    const spendingItems = (spending) => {
-      let arr = []
-      console.log('spendingItems function');
-      console.log('spending:', spending);
-
-      for (let key in spending) {
-        console.log('key1 from spending ',key)
-        for (let key2 in spending[key]) {
-          console.log('key2 from spending[key] ' , key2)
-          arr.push({month: key + ' ' + key2, data: spending[key][key2]})
-        }
-      }
-      console.log(arr)
-      return arr
+      const spendingItems8 = (spending) => {
+      let arr8 = []
+      for (let key in spending["August"]){
+      arr8.push({month: "August", data: {key: key, data: spending['August'][key]}})
+    }
+      console.log('array of result: ', arr8);
+      return arr8
     }
 
         // items += (<h3>key</h3>)
@@ -87,18 +84,28 @@ export default class SpendingDetails extends Component {
 		// })
 		return(
 			<div>
-        {spendingItems(spending).map(item => {
+        <h1>September</h1>
+        {spendingItems9(spending).map(item => {
           return (
             <div>
-              <h3>{item.month}</h3>
-              {
-                item.data.map(point => {
-                  return <p>{point.description} - {point.amount}</p>
-                })
-              }
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
             </div>
             )
         })}
+
+        <hr/>
+
+           <h1>August</h1>
+        {spendingItems8(spending).map(item => {
+          return (
+            <div>
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+            </div>
+            )
+        })}
+     
 			</div>
 		);
 	}
