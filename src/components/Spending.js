@@ -47,7 +47,6 @@ class Spending extends Component {
 		const months = ['January', 'February', 'March', 'April', 'May', 'June', 
 		'July', 'August', 'September', 'October', 'November', 'December'];
 
-
 		const separateMonths = (data) => {
   			let obj = formatObject();
   			data.forEach(item => {
@@ -55,6 +54,7 @@ class Spending extends Component {
       				'en-us', {month: 'long'})
     			obj[month].push(item)
   			})
+
   			return groupSpending(obj)
 		}
 
@@ -68,15 +68,14 @@ class Spending extends Component {
 
 		const groupSpending = (obj) => {
   			for (let key in obj){
-				this.state.spending.forEach(item => {
+				let summarizedSpending = {};
+				obj[key].forEach(item => {
 					if (!spendingCategories.includes(item.category)) {
 						spendingCategories.push(item.category)
 					}
 				})
-		
-			let summarizedSpending = {};
-		 	obj[key].forEach(item => {
-				this.state.spending.forEach(item => {
+			
+			 	obj[key].forEach(item => {
 					if (summarizedSpending[item.category]) {
 						summarizedSpending[item.category].push({
 							'description': item.description,
@@ -96,20 +95,20 @@ class Spending extends Component {
 
 			}
 
-			spendingCategories.forEach(category => {
-			if (!summarizedSpending[category]) {
-				summarizedSpending[category] = [];
-			}
-		})
-		console.log('summarizedSpending:', summarizedSpending);
+				// spendingCategories.forEach(category => {
+				// 	if (!summarizedSpending[category]) {
+				// 		summarizedSpending[category] = [];
+				// 	}
+				// })
+				// console.log('summarizedSpending:', summarizedSpending);
 
+			// }
+			console.log('obj:', obj)
 			return obj;
-
 		}
-	}
 
 
-		
+
 // ----- NEW CODE -----
 
 		this.state.spending.forEach( item => {
@@ -331,13 +330,12 @@ class Spending extends Component {
 				</div>
 
 				<div>
-
-					<SpendingDetails category='Housing' spending={summarizedSpending['housing']} />
-					<SpendingDetails category='Food' spending={summarizedSpending['food']} />
-					<SpendingDetails category='Tranportation' spending={summarizedSpending['transportation']} />
-					<SpendingDetails category='Shopping' spending={summarizedSpending['shopping']} />
-					<SpendingDetails category='Entertainment' spending={summarizedSpending['entertainment']} />
-					<SpendingDetails category='Savings' spending={summarizedSpending['savings']} />
+					<SpendingDetails category='Housing' spendingFunction={() => separateMonths(this.state.spending)} />
+					{/*<SpendingDetails category='Food' spending={() => separateMonths(summarizedSpending['food'])} />
+					<SpendingDetails category='Tranportation' spending={() => separateMonths(summarizedSpending['transportation'])} />
+					<SpendingDetails category='Shopping' spending={() => separateMonths(summarizedSpending['shopping'])} />
+					<SpendingDetails category='Entertainment' spending={() => separateMonths(summarizedSpending['entertainment'])} />
+					<SpendingDetails category='Savings' spending={() => separateMonths(summarizedSpending['savings'])} />*/}
 
 					<h2>{moment().format('MMMM')} Spending</h2>
 					<h1>Housing</h1>
