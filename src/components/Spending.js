@@ -44,35 +44,72 @@ class Spending extends Component {
 		
 // ----- NEW CODE -----
 		// populate categories array
-		this.state.spending.forEach(item => {
-			if (!spendingCategories.includes(item.category)) {
-				spendingCategories.push(item.category)
-			}
-		})
-		
-		let summarizedSpending = {};
-		this.state.spending.forEach(item => {
-			if (summarizedSpending[item.category]) {
-				summarizedSpending[item.category].push({
-					'description': item.description,
-					'amount': item.amount,
-					'date': item.date
-				})
-			} else {
-				summarizedSpending[item.category] = [{
-					'description': item.description,
-					'amount': item.amount,
-					'date': item.date
-				}];
-			}
-		})
+		const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+		'July', 'August', 'September', 'October', 'November', 'December'];
 
-		spendingCategories.forEach(category => {
+
+		const separateMonths = (data) => {
+  			let obj = formatObject();
+  			data.forEach(item => {
+    			let month = (new Date(item.date)).toLocaleString(
+      				'en-us', {month: 'long'})
+    			obj[month].push(item)
+  			})
+  			return groupSpending(obj)
+		}
+
+		const formatObject = () => {
+  			let obj = {}
+  			months.forEach(m => {
+    			obj[m] = []
+  			})
+  			return obj
+		}
+
+		const groupSpending = (obj) => {
+  			for (let key in obj){
+				this.state.spending.forEach(item => {
+					if (!spendingCategories.includes(item.category)) {
+						spendingCategories.push(item.category)
+					}
+				})
+		
+			let summarizedSpending = {};
+		 	obj[key].forEach(item => {
+				this.state.spending.forEach(item => {
+					if (summarizedSpending[item.category]) {
+						summarizedSpending[item.category].push({
+							'description': item.description,
+							'amount': item.amount,
+							'date': item.date
+						})
+					} else {
+						summarizedSpending[item.category] = [{
+							'description': item.description,
+							'amount': item.amount,
+							'date': item.date
+						}];
+					}
+				})
+
+				obj[key] = summarizedSpending;
+
+			}
+
+			spendingCategories.forEach(category => {
 			if (!summarizedSpending[category]) {
 				summarizedSpending[category] = [];
 			}
 		})
 		console.log('summarizedSpending:', summarizedSpending);
+
+			return obj;
+
+		}
+	}
+
+
+		
 // ----- NEW CODE -----
 
 		this.state.spending.forEach( item => {
