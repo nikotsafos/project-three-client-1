@@ -38,9 +38,10 @@ class AllMoneyList extends Component {
 
 			</div>
 			<div>
+			
 				<ul>
 					{ this.state.allMoney.map(allMoney => <p>
-						Money from: {allMoney.description}. Amount: {allMoney.amount}. Date: {moment(allMoney.date).calendar()}   
+						Money from: {allMoney.description}. Amount: {allMoney.amount}. Date: {moment(allMoney.date).calendar()}
 						<button>Edit</button><button>Delete</button>
 						</p>)}
 				</ul>

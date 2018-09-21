@@ -14,6 +14,7 @@ class BudgetCard extends Component {
     	<div>
         	<h3>Monthly Budget</h3>
 
+          <tbody>
 
         	{
             Object.keys(this.props.budget).map((key, index) => {

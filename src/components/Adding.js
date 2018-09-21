@@ -27,18 +27,23 @@ class Adding extends Component {
 
 
 	handleSubmit = (e) => {
-		console.log(this.state);
+		console.log('this state ', this.state);
+		e.preventDefault()
 		let token = localStorage.getItem('mernToken') || ''
 		axios.post('http://localhost:3000/money/all',  {
-			headers: { 'Authorization': `Bearer ${token}` }
-		}, this.state)
-		.then(result => {
-			console.log(result);
+			headers: { 'Authorization': `Bearer ${token}` },
+			body: this.state
+		}),
+		.then(res => {
+			// const adding = res.data;
+console.log('ADDING ======>>>>', this.state)
+			// this.setState({ amount: adding.amount,
+			// 								date: adding.date,
+			// 								description: adding.description,
+			// 								userId: adding.userId,
+ 			// });
 		})
-		.catch(err => {
-			console.log('error');
-		});
-	}
+}
 
 
 	render() {
