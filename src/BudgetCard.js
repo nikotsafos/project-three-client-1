@@ -13,7 +13,8 @@ class BudgetCard extends Component {
     return(
     	<div>
         	<h3>Monthly Budget</h3>
-            <tbody>
+
+          <tbody>
 
         	{
             Object.keys(this.props.budget).map((key, index) => {
