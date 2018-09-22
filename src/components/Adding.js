@@ -32,7 +32,7 @@ class Adding extends Component {
 		e.preventDefault()
 		let token = localStorage.getItem('mernToken') || ''
 
-		axios.post('http://localhost:3000/money/all',  {
+		axios.post('http://localhost:3000/money/all/post',  {
 			headers: { 'Authorization': `Bearer ${token}` },
 			body: this.state
 		})
