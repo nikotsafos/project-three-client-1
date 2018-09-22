@@ -21,11 +21,11 @@ class Nav extends Component {
               <span className="nav-id">{`${this.props.user.firstName}'s Account`} </span>
             </div>
       
-            <Link to="/" onClick={this.handleLogout}>Logout</Link>
             <Link to="/profile">Profile</Link>
+            <Link to="/initialplanning">Initial Planning</Link>
             <Link to="/adding">Adding</Link>
             <Link to="/spending">Spending</Link>
-            <Link to="/initialplanning">Initial Planning</Link>
+            <Link to="/" onClick={this.handleLogout}>Logout</Link>
            
           </nav>
         </div>

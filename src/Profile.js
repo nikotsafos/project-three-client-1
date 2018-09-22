@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserHome from './UserHome.js';
 import axios from 'axios';
 import '../node_modules/react-vis/dist/style.css';
+import SERVER_URL from './constants/server';
 
 class Profile extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Profile extends Component {
   componentDidMount() {
     let token = localStorage.getItem('mernToken')
     console.log('getting budget info', token)
-    axios.post('http://localhost:3000/budget', {
+    axios.post( SERVER_URL +'/budget', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => {

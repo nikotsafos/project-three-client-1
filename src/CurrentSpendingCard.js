@@ -3,6 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import DoughnutChart from './DoughnutChart';
 import ComparisonChart from './ComparisonChart';
+import SERVER_URL from './constants/server';
 
 
 export default class CurrentSpendingCard extends Component {
@@ -11,9 +12,9 @@ export default class CurrentSpendingCard extends Component {
   }
 
   componentDidMount() {
-
+    console.log("BUDGET ON CURRENT SPENDING", this.props.budget);
     let token = localStorage.getItem('mernToken') || ''
-		axios.post('http://localhost:3000/spending/post',  {
+		axios.post(SERVER_URL + '/spending/post',  {
 			headers: { 'Authorization': `Bearer ${token}` }
 		})
 
@@ -76,7 +77,6 @@ export default class CurrentSpendingCard extends Component {
 
 
     return (
-
       <div className="current-wrapper">
         <div>
           <DoughnutChart 
@@ -100,9 +100,16 @@ export default class CurrentSpendingCard extends Component {
               <tr className="bold"><td>Total:</td> <td>${totalSpending} </td></tr>
           </tbody>
         </div>
-        <ComparisonChart budget={this.props.budget}/>
+        <ComparisonChart 
+            budget={this.props.budget}
+            housing={hSum}
+            transportation={tSum}
+            entertainment={eSum}
+            shopping={shSum}
+            food={fSum}
+            savings={saSum}/>
       </div>
-
+      
     )
   }
 }
