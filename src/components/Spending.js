@@ -38,8 +38,6 @@ class Spending extends Component {
 	//	for (let i = 0; i< month; i++ ){
 		console.log("want to see array spending ",this.state.spending);
 		
-// ----- NEW CODE -----
-		// populate categories array
 		const months = ['January', 'February', 'March', 'April', 'May', 'June', 
 		'July', 'August', 'September', 'October', 'November', 'December'];
 
