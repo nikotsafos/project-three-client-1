@@ -63,7 +63,7 @@ export default class SpendingDetails extends Component {
       const spendingItems11 = (spending) => {
       let arr11 = []
       for (let key in spending["November"]){
-      arr9.push({month: "November", data: {key: key, data: spending['November'][key]}})
+      arr11.push({month: "November", data: {key: key, data: spending['November'][key]}})
     }
       console.log('array of result: ', arr11);
       return arr11
@@ -78,8 +78,6 @@ export default class SpendingDetails extends Component {
       return arr10
     }
 
-
-    let spending = this.props.spendingFunction();
       const spendingItems9 = (spending) => {
       let arr9 = []
       for (let key in spending["September"]){
@@ -154,20 +152,6 @@ export default class SpendingDetails extends Component {
       return arr1
     }
 
-
-        // items += (<h3>key</h3>)
-        // console.log(key)
-        // for (let key2 in spending[key]) {
-        //   items += <div><h1>TEST</h1><h1>
-        //   items += key2
-        //   items += </h1><p>description</p><p>amount</p><p>date</p></div>
-        // }
-        // items += </div>
-  //   let spendingItems = this.props.spending.map(item => {
-		// 	return (
-		// 		{<p>Spending on: {item.description}. Amount: ${item.amount}. Date: {item.date}</p>}
-		// 	)
-		// })
 		return(
 			<div>
         <h1>September</h1>
@@ -182,7 +166,7 @@ export default class SpendingDetails extends Component {
 
         <hr/>
 
-           <h1>August</h1>
+         <h1>August</h1>
         {spendingItems8(spending).map(item => {
           return (
             <div>
@@ -191,7 +175,92 @@ export default class SpendingDetails extends Component {
             </div>
             )
         })}
+
+        <hr/>
+
+           <h1>July</h1>
+        {spendingItems7(spending).map(item => {
+          return (
+            <div>
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+            </div>
+            )
+        })}
+
+        <hr/>
+
+         <h1>June</h1>
+        {spendingItems6(spending).map(item => {
+          return (
+            <div>
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+            </div>
+            )
+        })}
+
+        <hr/>
+
+         <h1>May</h1>
+        {spendingItems5(spending).map(item => {
+          return (
+            <div>
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+            </div>
+            )
+        })}
+
+        <hr/>
+
+         <h1>April</h1>
+        {spendingItems4(spending).map(item => {
+          return (
+            <div>
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+            </div>
+            )
+        })}
+
+        <hr/>
      
+         <h1>March</h1>
+        {spendingItems3(spending).map(item => {
+          return (
+            <div>
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+            </div>
+            )
+        })}
+
+        <hr/>
+
+         <h1>February</h1>
+        {spendingItems2(spending).map(item => {
+          return (
+            <div>
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+            </div>
+            )
+        })}
+
+        <hr/>
+
+         <h1>January</h1>
+        {spendingItems1(spending).map(item => {
+          return (
+            <div>
+              <h2>{item.data.key}</h2>
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+            </div>
+            )
+        })}
+
+        <hr/>
 			</div>
 		);
 	}

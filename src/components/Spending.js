@@ -330,7 +330,7 @@ class Spending extends Component {
 				</div>
 
 				<div>
-					<SpendingDetails category='Housing' spendingFunction={() => separateMonths(this.state.spending)} />
+					<SpendingDetails spendingFunction={() => separateMonths(this.state.spending)} />
 					{/*<SpendingDetails category='Food' spending={() => separateMonths(summarizedSpending['food'])} />
 					<SpendingDetails category='Tranportation' spending={() => separateMonths(summarizedSpending['transportation'])} />
 					<SpendingDetails category='Shopping' spending={() => separateMonths(summarizedSpending['shopping'])} />
