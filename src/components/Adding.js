@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import SERVER_URL from '../constants/server';
 
 
 class Adding extends Component {
@@ -28,7 +29,10 @@ class Adding extends Component {
 
 	handleSubmit = (e) => {
 		console.log(this.state);
-		axios.post('http://localhost:3000/money/all', this.state)
+		let token = localStorage.getItem('mernToken') || ''
+		axios.post(SERVER_URL + '/money/all',  {
+			headers: { 'Authorization': `Bearer ${token}` }
+		}, this.state)
 		.then(result => {
 			console.log(result);
 		})

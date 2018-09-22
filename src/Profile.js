@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import UserHome from './UserHome.js';
 import axios from 'axios';
 import '../node_modules/react-vis/dist/style.css';
-
-
-
+import SERVER_URL from './constants/server';
 
 class Profile extends Component {
   constructor(props) {
@@ -14,27 +12,22 @@ class Profile extends Component {
     }
   }
 
-    componentDidMount() {
-    axios.get('http://localhost:3000/profile')
-      .then(res => {
-        const budget = res.data;
-        console.log("BUDGET", budget)
-        this.setState({ budget })
-
-      })
+  componentDidMount() {
+    let token = localStorage.getItem('mernToken')
+    console.log('getting budget info', token)
+    axios.post( SERVER_URL +'/budget', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+    .then(res => {
+      this.setState({budget: res.data})
+    })
   }
-  render() {
 
-    console.log("RENDER STATE", this.state);
+  render() {
     if(this.props.user){
       return (
           <div>
-            <h2>Hello again, {this.props.user.firstName}!</h2>
-           <div>
-
-      </div>
-
-           <UserHome budget={this.state.budget} user={this.props.user}/>
+            <UserHome budget={this.state.budget} user={this.props.user}/>
 
           </div>
         );

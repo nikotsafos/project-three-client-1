@@ -3,9 +3,12 @@ import SpendingItems from './SpendingItems.js';
 import axios from 'axios';
 import moment from 'moment';
 import SpendingDetails from './SpendingDetails';
+import SERVER_URL from '../constants/server';
 
 let spendingCategories = ["housing", "food", "transportation", "shopping", "entertainment", "savings"];
 let spendingArr = [];
+
+
 
 class Spending extends Component {
 	state = {
@@ -18,14 +21,20 @@ class Spending extends Component {
 	}
 
 	componentDidMount() {
+
 		console.log("DO WE HAVE A USER??", this.props.user);
 
-		axios.post('http://localhost:3000/spending/post', this.props.user)
+		let token = localStorage.getItem('mernToken') || ''
+		axios.post(SERVER_URL + '/spending/post',  {
+			headers: { 'Authorization': `Bearer ${token}` }
+		})
+
 			.then(res => {
 				const spending = res.data;
 				this.setState({ spending });
 			})
 	}
+
 
 	render() {
 		var total_spending_sep= 0;
@@ -36,6 +45,7 @@ class Spending extends Component {
 		var entertainmentSep_total = 0;
 		var entertainmentAug_total = 0;
 	//	for (let i = 0; i< month; i++ ){
+
 		console.log("want to see array spending ",this.state.spending);
 		
 		const months = ['January', 'February', 'March', 'April', 'May', 'June', 
@@ -91,14 +101,18 @@ class Spending extends Component {
 			return obj;
 		}
 
+
 		return(
 			<div>
 				<div>
+
 					<SpendingItems user={this.props.user} />
 				</div>
 				<div>
+      
 					<SpendingDetails spendingFunction={() => separateMonths(this.state.spending)} />
 					<br/><br/><br/><br/>
+
 				</div>
 			</div>
 		);

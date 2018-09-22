@@ -4,38 +4,29 @@ import { Link } from 'react-router-dom';
 class Nav extends Component {
   handleLogout = (e) => {
     console.log('logging out...');
-    e.preventDefault();
     localStorage.removeItem('mernToken');
     this.props.updateUser();
   }
 
   render() {
-    let links = '';
-    if(this.props.user){
-      links = (
-          <span>
-            <a onClick={this.handleLogout}>Logout</a>
-            <Link to="/profile">Profile</Link>
-            <Link to="/adding">Adding</Link>
-            <Link to="/spending">Spending</Link>
-            <Link to="/initialplanning">Initial Planning</Link>
-          </span>
-        );
-    }
-    else {
-      links = (
-          <span>
-            <Link to="/login">Log In</Link>
-            <Link to="/signup">Sign Up</Link>
-          </span>
-        );
-    }
+ 
+  
+       
+    
     return(
         <div>
           <nav className="nav">
-            <Link to="/">Home</Link>
-
-            {links}
+            <div>
+              <span className="nav-logo"> Ginkgo</span>
+              <span className="nav-id">{`${this.props.user.firstName}'s Account`} </span>
+            </div>
+      
+            <Link to="/profile">Profile</Link>
+            <Link to="/initialplanning">Initial Planning</Link>
+            <Link to="/adding">Adding</Link>
+            <Link to="/spending">Spending</Link>
+            <Link to="/" onClick={this.handleLogout}>Logout</Link>
+           
           </nav>
         </div>
       );
