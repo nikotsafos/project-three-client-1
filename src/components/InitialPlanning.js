@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import SERVER_URL from '../constants/server';
 
 class Adding extends Component {
 	constructor(props) {
@@ -24,7 +25,7 @@ class Adding extends Component {
 	componentDidMount(){
 	 	  let token = localStorage.getItem('mernToken')
     console.log('getting budget info', token)
-    axios.post('http://localhost:3000/budget', {
+    axios.post(SERVER_URL + '/budget', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => {
@@ -47,7 +48,7 @@ class Adding extends Component {
 		e.preventDefault();
 		let token = localStorage.getItem('mernToken') || ''
 		console.log('hello =====>', this.state, this.props.user);
-		axios.post('http://localhost:3000/budget/update',  {
+		axios.post(SERVER_URL + '/budget/update',  {
 			headers: { 'Authorization': `Bearer ${token}` },
 			body: this.state
 		})

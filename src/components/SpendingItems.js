@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SERVER_URL from '../constants/server';
 
 
 
@@ -32,7 +33,7 @@ class SpendingItems extends Component {
 
 		e.preventDefault();
 		let token = localStorage.getItem('mernToken') || ''
-		axios.post('http://localhost:3000/spending',  {
+		axios.post(SERVER_URL + '/spending',  {
 			headers: { 'Authorization': `Bearer ${token}` },
 			body: this.state
 		})
