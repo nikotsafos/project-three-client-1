@@ -18,6 +18,7 @@ class Profile extends Component {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => {
+      console.log('axios.post /budget response', res);
       this.setState({budget: res.data})
     })
   }

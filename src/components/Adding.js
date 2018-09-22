@@ -33,17 +33,14 @@ class Adding extends Component {
 		axios.post('http://localhost:3000/money/all',  {
 			headers: { 'Authorization': `Bearer ${token}` },
 			body: this.state
-		}),
-		.then(res => {
-			// const adding = res.data;
-console.log('ADDING ======>>>>', this.state)
-			// this.setState({ amount: adding.amount,
-			// 								date: adding.date,
-			// 								description: adding.description,
-			// 								userId: adding.userId,
- 			// });
 		})
-}
+		.then(result => {
+			console.log(result);
+		})
+		.catch(err => {
+			console.log('error');
+		});
+	}
 
 
 	render() {

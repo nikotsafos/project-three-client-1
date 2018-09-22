@@ -16,10 +16,13 @@ class AllMoneyList extends Component {
 	// 		})
 	// }
 
+
 	componentDidMount() {
-		let token = localStorage.getItem('mernToken')
-		axios.post('http://localhost:3000/money/all/post',  {
-			headers: { 'Authorization': `Bearer ${token}` }
+		let token = localStorage.getItem('mernToken') || ''
+		console.log(token)
+		axios.post('http://localhost:3000/money/all',  {
+			headers: { 'Authorization': `Bearer ${token}` },
+			body: this.state,
 		})
 		.then(res => {
 				const allMoney = res.data;
@@ -38,7 +41,7 @@ class AllMoneyList extends Component {
 
 			</div>
 			<div>
-			
+
 				<ul>
 					{ this.state.allMoney.map(allMoney => <p>
 						Money from: {allMoney.description}. Amount: {allMoney.amount}. Date: {moment(allMoney.date).calendar()}

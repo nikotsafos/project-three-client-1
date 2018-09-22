@@ -12,7 +12,7 @@ class Spending extends Component {
 		let token = localStorage.getItem('mernToken') || ''
 		axios.post('http://localhost:3000/spending/post',  {
 			headers: { 'Authorization': `Bearer ${token}` }
-		})
+		}, this.state)
 			.then(res => {
 				const spending = res.data;
 				this.setState({ spending });
