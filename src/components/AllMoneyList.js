@@ -17,6 +17,21 @@ class AllMoneyList extends Component {
 	// 		})
 	// }
 
+	handleDelete = (e) => {
+  console.log('trying to delete')
+  let token = localStorage.getItem('mernToken') || ''
+  axios.post('http://localhost:3000/spending/delete',  {
+    headers: { 'Authorization': `Bearer ${token}` },
+    body: this.state
+  })
+  .then(result => {
+  	console.log('result', result);
+  })
+  .catch(err => {
+  	console.log('error');
+  });
+  }
+
 
 	componentDidMount() {
 
@@ -48,7 +63,7 @@ class AllMoneyList extends Component {
 				<ul>
 					{ this.state.allMoney.map(allMoney => <p>
 						Money from: {allMoney.description}. Amount: {allMoney.amount}. Date: {moment(allMoney.date).calendar()}
-						<button>Edit</button><button>Delete</button>
+						<input type='button' onClick={() => this.handleDelete()} value="Delete"/>
 						</p>)}
 				</ul>
 			</div>
