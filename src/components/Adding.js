@@ -65,10 +65,10 @@ class Adding extends Component {
 					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required />
 
 					<label for="date">Date:</label>
-					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} required />
 
 					<label for="description">description:</label>
-					<input type="text" name="description" value={this.state.description} onChange={this.handleChange} /><br />
+					<input type="text" name="description" value={this.state.description} onChange={this.handleChange} required /><br />
 
 					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button>
 				</form>

@@ -47,8 +47,8 @@ class Spending extends Component {
 	//	for (let i = 0; i< month; i++ ){
 
 		console.log("want to see array spending ",this.state.spending);
-		
-		const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+
+		const months = ['January', 'February', 'March', 'April', 'May', 'June',
 		'July', 'August', 'September', 'October', 'November', 'December'];
 
 		const separateMonths = (data) => {
@@ -78,19 +78,21 @@ class Spending extends Component {
 						spendingCategories.push(item.category)
 					}
 				})
-			
+
 			 	obj[key].forEach(item => {
 					if (summarizedSpending[item.category]) {
 						summarizedSpending[item.category].push({
 							'description': item.description,
 							'amount': item.amount,
-							'date': item.date
+							'date': item.date,
+							'id': item._id
 						})
 					} else {
 						summarizedSpending[item.category] = [{
 							'description': item.description,
 							'amount': item.amount,
-							'date': item.date
+							'date': item.date,
+							'id': item._id
 						}];
 					}
 				})
@@ -109,7 +111,7 @@ class Spending extends Component {
 					<SpendingItems user={this.props.user} title={this.props.title} />
 				</div>
 				<div>
-      
+
 					<SpendingDetails spendingFunction={() => separateMonths(this.state.spending)} />
 					<br/><br/><br/><br/>
 
