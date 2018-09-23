@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SERVER_URL from '../constants/server';
+import PageTitle from './PageTitle';
 
 
 
@@ -50,9 +51,17 @@ class SpendingItems extends Component {
 
 	render() {
 
+		let sectionTitle;
+     		if(this.props.title){
+            	sectionTitle = <PageTitle title={this.props.title}/>
+      	} else {
+          	sectionTitle = null;
+      	} 
+
+
 		return (
 			<div>
-				<h1>Adding your spending</h1>
+				{sectionTitle}
 				<form  onSubmit={this.handleSubmit}>
 						<label for="category">Category:</label>
 {/*						<select name="category" form="spending" value="Category">

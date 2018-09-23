@@ -40,7 +40,7 @@ class AllMoneyList extends Component {
 			<div>
 				<div>
 
-				<Adding user={this.props.user} />
+				<Adding user={this.props.user} title={this.props.title} />
 
 			</div>
 			<div>

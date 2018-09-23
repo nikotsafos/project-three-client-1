@@ -106,7 +106,7 @@ class Spending extends Component {
 			<div>
 				<div>
 
-					<SpendingItems user={this.props.user} />
+					<SpendingItems user={this.props.user} title={this.props.title} />
 				</div>
 				<div>
       

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import PageTitle from './PageTitle';
 import SERVER_URL from '../constants/server';
 
 
@@ -47,9 +48,18 @@ class Adding extends Component {
 
 
 	render() {
+
+		let sectionTitle;
+     		if(this.props.title){
+            	sectionTitle = <PageTitle title={this.props.title}/>
+      	} else {
+          	sectionTitle = null;
+      	}
+
 		return(
 			<div>
-				<h1>Add more money</h1>
+				{sectionTitle}
+
 				<form className="AddingForm" onSubmit={this.handleSubmit}>
 					<label for="amount">Amount:</label>
 					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required />

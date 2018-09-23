@@ -44,14 +44,14 @@ nav a:hover {
   margin: 20px;
   text-align: left;
   display: grid;
-  grid-template-columns: 300px 300px 610px;
+  grid-template-columns: 24vw 24vw 48vw;
   grid-template-rows: 650px;
 }
 
 .current-wrapper {
   display: grid;
-  grid-template-columns: 300px 300px;
-  grid-template-rows: 400px;
+  grid-template-columns: 24vw 24vw;
+  grid-template-rows: 350px;
 
 }
 

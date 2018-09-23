@@ -75,14 +75,14 @@ class App extends Component {
             {navigation}
              
 
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Home} user={this.state.user} />
 
             <Route path="/adding" component={
-              () => (<AllMoneyList user={this.state.user} />)
+              () => (<AllMoneyList user={this.state.user} title="Add Income" />)
             } />
 
             <Route path="/spending" component={
-              () => (<Spending user={this.state.user} />)
+              () => (<Spending user={this.state.user} title="Add Expenditure" />)
             } />
 
             <Route path="/initialplanning" component={
@@ -101,7 +101,9 @@ class App extends Component {
             } />
           </div>
         </Router>
+
         <Footer />
+
       </div>
     );
   }

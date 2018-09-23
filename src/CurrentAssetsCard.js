@@ -17,9 +17,15 @@ class AllMoneyList extends Component {
 	// }
 
 	componentDidMount() {
-		axios.post(SERVER_URL + '/money/all/post', this.props.user)
-			.then(res => {
-				console.log("ASSETS DATA", res.data);
+
+		let token = localStorage.getItem('mernToken') || ''
+		console.log(token)
+		axios.post('http://localhost:3000/money/all',  {
+			headers: { 'Authorization': `Bearer ${token}` },
+			body: this.state,
+
+		})
+		.then(res => {
 				const allMoney = res.data;
 				this.setState({ allMoney });
 			})
