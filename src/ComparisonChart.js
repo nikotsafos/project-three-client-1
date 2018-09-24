@@ -17,21 +17,21 @@ export default class Example extends React.Component {
     console.log("BUDGET", this.props.budget)
 
     const budget = [
-    {x: 'housing', y: this.props.budget.housingBudget}, 
-    {x: 'food', y: this.props.budget.foodBudget}, 
-    {x: 'transportation', y: this.props.budget.transportationBudget},
-    {x: 'entertainment', y: this.props.budget.entertainmentBudget},
-    {x: 'shopping', y: this.props.budget.shoppingBudget},
-    {x: 'savings', y: this.props.budget.savingsBudget},
+    {x: 'housing', y: this.props.budget.housingBudget, color: '#b6e1ef'}, 
+    {x: 'food', y: this.props.budget.foodBudget, color: '#67c3c6'}, 
+    {x: 'transportation', y: this.props.budget.transportationBudget, color: '#ed896a'},
+    {x: 'entertainment', y: this.props.budget.entertainmentBudget, color: '#fcba79'},
+    {x: 'shopping', y: this.props.budget.shoppingBudget, color: '#85aef2'},
+    {x: 'savings', y: this.props.budget.savingsBudget, color: '#d98def'},
     ];
 
     const spending = [
-        {x: 'housing', y: this.props.housing}, 
-        {x: 'food', y: this.props.food}, 
-        {x: 'transportation', y: this.props.transportation},
-        {x: 'entertainment', y: this.props.entertainment},
-        {x: 'shopping', y: this.props.shopping},
-        {x: 'savings', y: this.props.savings}
+        {x: 'housing', y: this.props.housing, color: '#7BC8E2'}, 
+        {x: 'food', y: this.props.food, color: '#1D9498'}, 
+        {x: 'transportation', y: this.props.transportation, color: '#ED592B'},
+        {x: 'entertainment', y: this.props.entertainment, color: '#F49A43'},
+        {x: 'shopping', y: this.props.shopping, color: '#4286f4'},
+        {x: 'savings', y: this.props.savings, color: '#c23ce8'}
         ];
 
     const labelData = budget.map((d, idx) => ({
@@ -44,7 +44,8 @@ export default class Example extends React.Component {
 
     return (
       <div>
-        <XYPlot xType="ordinal" width={600} height={300} xDistance={100}>
+        <h3> Budget vs Spending</h3>
+        <XYPlot colorType='literal' xType="ordinal" width={550} height={300} xDistance={100}>
           <VerticalGridLines />
           <HorizontalGridLines />
           <XAxis />

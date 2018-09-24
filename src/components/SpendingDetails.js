@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import axios from 'axios';
 export default class SpendingDetails extends Component {
+
+
+  handleDelete = (item) => {
+  console.log('trying to delete', item)
+  let token = localStorage.getItem('mernToken') || ''
+
+  axios.delete('http://localhost:3000/money/delete',  {
+    headers: { 'Authorization': `Bearer ${token}` },
+    body: item
+  })
+  .then(item => {
+  	console.log('result', item);
+  })
+  .catch(err => {
+    console.log(item)
+  	console.log('error', err);
+  });
+}
 
   render() {
 		var month_list = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
@@ -49,8 +68,10 @@ export default class SpendingDetails extends Component {
             break;
 }
 
+
+
     let spending = this.props.spendingFunction();
- 
+
       const spendingItems12 = (spending) => {
       let arr12 = []
       for (let key in spending["December"]){
@@ -152,6 +173,8 @@ export default class SpendingDetails extends Component {
       return arr1
     }
 
+
+
 		return(
 			<div>
         <h1>September</h1>
@@ -159,7 +182,11 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete(key.id)} value="Delete"/>
+            </p>)}
+
             </div>
             )
         })}
@@ -171,7 +198,11 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete()} value="Delete"/>
+              </p>)}
+
             </div>
             )
         })}
@@ -183,7 +214,11 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete()} value="Delete"/>
+            </p>)}
+
             </div>
             )
         })}
@@ -195,7 +230,11 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete()} value="Delete"/>
+            </p>)}
+
             </div>
             )
         })}
@@ -207,7 +246,11 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete()} value="Delete"/>
+            </p>)}
+
             </div>
             )
         })}
@@ -219,19 +262,27 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete()} value="Delete"/>
+            </p>)}
+
             </div>
             )
         })}
 
         <hr/>
-     
+
          <h1>March</h1>
         {spendingItems3(spending).map(item => {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete()} value="Delete"/>
+            </p>)}
+
             </div>
             )
         })}
@@ -243,7 +294,11 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete()} value="Delete"/>
+            </p>)}
+
             </div>
             )
         })}
@@ -255,7 +310,11 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
+
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()} id: {key.id}
+              <input type='button' onClick={() => this.handleDelete()} value="Delete"/>
+            </p>)}
+
             </div>
             )
         })}

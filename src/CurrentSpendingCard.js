@@ -77,8 +77,8 @@ export default class CurrentSpendingCard extends Component {
 
 
     return (
+      <div>
       <div className="current-wrapper">
-        <div>
           <DoughnutChart 
               housing={hSum}
               transportation={tSum}
@@ -86,8 +86,8 @@ export default class CurrentSpendingCard extends Component {
               shopping={shSum}
               food={fSum}
               savings={saSum}/>
-        </div>
-        <div>
+        
+        <div className="spending-list">
           <h3>Current Spending </h3>
           <tbody>
              <tr> <td>Housing</td> <td>{hSum}</td> <td className="Housing"></td></tr>
@@ -99,6 +99,7 @@ export default class CurrentSpendingCard extends Component {
              <tr><td>Savings</td> <td>{saSum}</td> <td className="Savings"></td></tr>
               <tr className="bold"><td>Total:</td> <td>${totalSpending} </td></tr>
           </tbody>
+        </div>
         </div>
         <ComparisonChart 
             budget={this.props.budget}

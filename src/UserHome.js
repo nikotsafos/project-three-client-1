@@ -50,8 +50,10 @@ class UserHome extends Component {
 		    </div>
 
 		    <div className="formWrapper">
+		    		<h3>Add Expenditure </h3>
 		       	   <SpendingItems user={this.props.user} />
-		       	   <Adding user={this.props.user} />
+		       	   <h3>Add Income </h3>
+		       	   <Adding user={this.props.user}  />
 			</div>
 			 
 		</div>

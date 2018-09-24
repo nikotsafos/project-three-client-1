@@ -8,6 +8,22 @@ class AllMoneyList extends Component {
 	state = {
 		allMoney: [],
 	}
+
+	handleDelete = (e) => {
+  console.log('trying to delete')
+  let token = localStorage.getItem('mernToken') || ''
+  axios.post('http://localhost:3000/spending/delete',  {
+    headers: { 'Authorization': `Bearer ${token}` },
+    body: this.state
+  })
+  .then(result => {
+  	console.log('result', result);
+  })
+  .catch(err => {
+  	console.log('error');
+  });
+  }
+  
 	componentDidMount() {
 		let token = localStorage.getItem('mernToken') || ''
 		console.log(token)
@@ -154,6 +170,7 @@ class AllMoneyList extends Component {
 		return(
 			<div>
 				<div>
+
 				<Adding user={this.props.user} />
 			</div>
 			<div>
@@ -194,6 +211,7 @@ class AllMoneyList extends Component {
 				<h3>Total: ${moneyList.January.total}</h3>
 				<hr/>
 				<br/><br/><br/><br/>
+
 			</div>
 
    </div>
