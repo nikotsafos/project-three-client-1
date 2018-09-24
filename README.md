@@ -29,11 +29,12 @@ Gingko uses the following APIs:
 
 ### Interface
 
-[home]: https://res.cloudinary.com/kelseygreen/image/upload/v1537768941/Ginkgo-home.png "Ginkgo landing page"
 
-[profile]: https://res.cloudinary.com/kelseygreen/image/upload/v1537768940/Ginkgo-profile.png "Ginkgo profile page"
+![home](https://res.cloudinary.com/kelseygreen/image/upload/v1537768941/Ginkgo-home.png "Ginkgo landing page")
 
-[interface]: https://res.cloudinary.com/kelseygreen/image/upload/v1537768940/Ginkgo-add.png "Ginkgo expenses page"
+![profile](https://res.cloudinary.com/kelseygreen/image/upload/v1537768940/Ginkgo-profile.png "Ginkgo profile page")
+
+![interface](https://res.cloudinary.com/kelseygreen/image/upload/v1537768940/Ginkgo-add.png "Ginkgo expenses page")
 
 ### Data Models
 
