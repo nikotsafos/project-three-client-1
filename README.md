@@ -4,6 +4,7 @@ Ginkgo is a simple budgeting tool that allows you to set financial goals, track 
 
 [Set up your Ginkgo account here](https://my-ginkgo.herokuapp.com/)
 
+
 ### Design and concept
 
 Ginkgo is a budgeting tool for visual thinkers. On the profile page, the user can see a doughnut chart showing the breakdown of their monthly budget and their monthly spending. It's easy to see when certain categories get out of balance. The profile page also displays a bar chart that shows actual spending vs budget for each category so the user can determine at a glance whether their spending is in line with their budgeting.
@@ -11,6 +12,7 @@ Ginkgo is a budgeting tool for visual thinkers. On the profile page, the user ca
 Ginkgo tracks spending by date and by category. On the profile page, the user can see a summary of spending, but on the Expenses page, the user can see a record of expenditures sorted by date and type. On the Income page, the user can see a detailed record of all income sources and instances, sorted by date and separated by month.
 
 ### User stories 
+
 
 As a Gingko user:
  * I want to set a budget for different categories of expenses, like housing, transportation, and entertainment.
@@ -88,7 +90,7 @@ Spending: Object
 | ------ | ----------------- | ----------------------------- | ------------------------------------------ |
 | POST | /money/all | controllers/money.js | Displays the users income records |
 | POST | /money/all/post | controllers/money.js | User adds income information |
-| DELETE | /money/delete | controllers/money.js | Delete an income entry |
+| POST | /money/delete | controllers/money.js | Delete an income entry |
 
 ### Spending Routes
 
@@ -96,4 +98,4 @@ Spending: Object
 | ------ | ----------------- | ----------------------------- | ------------------------------------------ |
 | POST | /spending/post | controllers/spending.js | Displays the users spending records |
 | POST | /spending/ | controllers/spending.js | User adds spending information |
-| DELETE | /spending/delete | controllers/spending.js | Delete a spending entry |
+| POST | /spending/delete | controllers/spending.js | Delete a spending entry |

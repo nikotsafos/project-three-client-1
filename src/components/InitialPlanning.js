@@ -45,7 +45,7 @@ class Adding extends Component {
   }
 
 	handleSubmit = (e) => {
-		
+
 		let token = localStorage.getItem('mernToken') || ''
 		console.log('hello =====>', this.state, this.props.user);
 		axios.post(SERVER_URL + '/budget/update',  {
@@ -65,6 +65,7 @@ class Adding extends Component {
 			<div>
 				<h2>Initial Financial Plan</h2>
 				<p>Set your spending goals for each category!</p>
+
 			<div className="form-flex">
 				<div className="form-box">
 					<form onSubmit={this.handleSubmit}>
@@ -91,6 +92,7 @@ class Adding extends Component {
 					</form>
 				</div>
 			</div>
+
 
 			</div>
 		);
