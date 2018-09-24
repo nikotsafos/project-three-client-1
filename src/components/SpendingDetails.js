@@ -159,7 +159,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
@@ -171,7 +171,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
@@ -183,7 +183,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
@@ -195,7 +195,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
@@ -207,7 +207,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
@@ -219,7 +219,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
@@ -231,7 +231,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
@@ -243,7 +243,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
@@ -255,7 +255,7 @@ export default class SpendingDetails extends Component {
           return (
             <div>
               <h2>{item.data.key}</h2>
-              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {key.date}</p>)}              
+              {item.data.data.map(key => <p>Spending on: {key.description}. Amount: {key.amount}. Date: {moment(key.date).calendar()}</p>)}              
             </div>
             )
         })}
