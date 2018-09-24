@@ -12,6 +12,7 @@ import Signup from './auth/Signup';
 import InitialPlanning from './components/InitialPlanning';
 import Spending from'./components/Spending';
 import AllMoneyList from './components/AllMoneyList.js';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props){
@@ -61,7 +62,6 @@ class App extends Component {
     let navigation;
      if(this.state.user){
             navigation = <Nav user={this.state.user} updateUser={this.getUser} />
-
       } else {
           navigation = null;
       } 
@@ -75,7 +75,9 @@ class App extends Component {
             {navigation}
              
 
-            <Route exact path="/" component={Home} user={this.state.user} />
+            <Route exact path="/" component={
+              () => (<Home user={this.state.user} />)
+            } />
 
             <Route path="/adding" component={
               () => (<AllMoneyList user={this.state.user} title="Add Income" />)
