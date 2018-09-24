@@ -13,6 +13,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
+    console.log("PROFILE USER", this.props.user)
     let token = localStorage.getItem('mernToken')
     console.log('getting budget info', token)
     axios.post( SERVER_URL +'/budget', {
