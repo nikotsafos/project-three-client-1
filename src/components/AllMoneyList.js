@@ -164,7 +164,9 @@ class AllMoneyList extends Component {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
+
 						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+
 						</p>
 						)})
 
@@ -172,7 +174,7 @@ class AllMoneyList extends Component {
 			<div>
 				<div>
 
-				<Adding user={this.props.user} />
+				<Adding user={this.props.user} title={this.props.title}/>
 			</div>
 			<div>
 				<h2>September Adding</h2>

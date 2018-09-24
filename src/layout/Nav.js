@@ -22,9 +22,9 @@ class Nav extends Component {
             </div>
       
             <Link to="/profile">Profile</Link>
-            <Link to="/initialplanning">Initial Planning</Link>
-            <Link to="/adding">Adding</Link>
-            <Link to="/spending">Spending</Link>
+            <Link to="/initialplanning">Set a Budget</Link>
+            <Link to="/adding">Income</Link>
+            <Link to="/spending">Expenses</Link>
             <Link to="/" onClick={this.handleLogout}>Logout</Link>
            
           </nav>

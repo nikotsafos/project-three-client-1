@@ -9,24 +9,21 @@ var total = 0;
 class BudgetCard extends Component {
 
   render() {
-    console.log("BUDGET CARD", this.props.budget.housingBudget)
     total = 0;
     let display;
     if (this.props.budget.housingBudget) {
-      display =   <tbody>
-
+      display =   <table className="profile-table">
+        <tbody>
             {
               Object.keys(this.props.budget).map((key, index) => {
                 total += parseInt(this.props.budget[key])
-                return (<tr><td>{categories[index]}</td>  <td>{this.props.budget[key]}</td><td className={categories[index]}></td></tr>);
+                return (<tr><td>{categories[index]}</td><td>{this.props.budget[key]}</td><td className={categories[index]}> </td></tr>);
               })
             }
+            <tr><td className="bold">Total:</td><td className="bold">${total}</td></tr>
 
-
-
-            <tr><td className="bold">Total:</td> <td className="bold">${total}</td> </tr>
-
-            </tbody>
+          </tbody>
+        </table>
 
       } else {
         display = 

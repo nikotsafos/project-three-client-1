@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SpendingItems from './SpendingItems.js';
 import axios from 'axios';
-import moment from 'moment';
 import SpendingDetails from './SpendingDetails';
 import SERVER_URL from '../constants/server';
 

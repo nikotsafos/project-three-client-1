@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 class Home extends Component {
  
   render() {
-    console.log("USER", this.props.user);
      let homenav;
      if(this.props.user){
             homenav = <span className="links">

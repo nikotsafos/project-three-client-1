@@ -12,14 +12,12 @@ export default class CurrentSpendingCard extends Component {
   }
 
   componentDidMount() {
-    console.log("BUDGET ON CURRENT SPENDING", this.props.budget);
     let token = localStorage.getItem('mernToken') || ''
 		axios.post(SERVER_URL + '/spending/post',  {
 			headers: { 'Authorization': `Bearer ${token}` }
 		})
 
       .then(res => {
-        console.log("RES.DATA IS =====>",res.data);
         const spending = res.data;
         this.setState({ spending });
       })
@@ -73,9 +71,6 @@ export default class CurrentSpendingCard extends Component {
   saSum = savings.reduce((total, inc) => {return total + inc}, 0 );
 
 
-  console.log(food);
-
-
     return (
       <div>
       <div className="current-wrapper">
@@ -89,16 +84,17 @@ export default class CurrentSpendingCard extends Component {
         
         <div className="spending-list">
           <h3>Current Spending </h3>
-          <tbody>
-             <tr> <td>Housing</td> <td>{hSum}</td> <td className="Housing"></td></tr>
-             <tr> <td>Food</td> <td>{fSum}</td> <td className="Food"></td></tr>
-             <tr> <td>Transportation</td>  <td>{tSum}</td> <td className="Transportation"></td></tr>
-             {/*<p>Transportation: {transportation.reduce((total, inc) => {return total + inc}, 0 )}</p>*/}
-             <tr><td>Entertainment</td> <td>{eSum}</td> <td className="Entertainment"></td></tr>
-             <tr><td>Shopping</td> <td>{shSum}</td> <td className="Shopping"></td></tr>
-             <tr><td>Savings</td> <td>{saSum}</td> <td className="Savings"></td></tr>
-              <tr className="bold"><td>Total:</td> <td>${totalSpending} </td></tr>
-          </tbody>
+          <table className="profile-table">
+            <tbody>
+               <tr><td >Housing</td><td>{hSum}</td><td className="profile-table Housing"></td></tr>
+               <tr><td>Food</td><td>{fSum}</td><td className="profile-table Food"></td></tr>
+               <tr><td>Transportation</td><td>{tSum}</td><td className="profile-table Transportation"> </td></tr>
+               <tr><td>Entertainment</td><td>{eSum}</td><td className="profile-table Entertainment"> </td></tr>
+               <tr><td>Shopping</td><td>{shSum}</td><td className="profile-table Shopping"> </td></tr>
+               <tr><td>Savings</td><td>{saSum}</td><td className="profile-table Savings"> </td></tr>
+               <tr className="bold"><td>Total:</td><td>${totalSpending}</td></tr>
+            </tbody>
+          </table>
         </div>
         </div>
         <ComparisonChart 

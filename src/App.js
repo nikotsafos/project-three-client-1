@@ -12,7 +12,6 @@ import Signup from './auth/Signup';
 import InitialPlanning from './components/InitialPlanning';
 import Spending from'./components/Spending';
 import AllMoneyList from './components/AllMoneyList.js';
-import { Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props){
