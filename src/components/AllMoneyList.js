@@ -38,8 +38,18 @@ class AllMoneyList extends Component {
 
 	render() {
 		const moneyList = {
+			December: [],
+			November: [],
+			October: [],
 			September: [],
-			August: []
+			August: [],
+			July: [],
+			June: [],
+			May: [],
+			April: [],
+			March: [],
+			Feb: [],
+			January: []
 		};
 		const monthJSX = [];
 		
