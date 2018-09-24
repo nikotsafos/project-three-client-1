@@ -2,14 +2,14 @@
 
 Ginkgo is a simple budgeting tool that allows you to set financial goals, track your spending and income, and compare your spending with your goals on a month-by-month basis.
 
-(https://my-ginkgo.herokuapp.com/ "Set up your Ginkgo account here")
+[Set up your Ginkgo account here](https://my-ginkgo.herokuapp.com/)
 
 ### User stories 
 
 As a Gingko user:
- *I want to set a budget for different categories of expenses, like housing, transportation, and entertainment.
- *I want to record expenditures and income, and see lists of my previous expenditures and income.
- *I want to compare my spending-to-date with the budget I set.
+ * I want to set a budget for different categories of expenses, like housing, transportation, and entertainment.
+ * I want to record expenditures and income, and see lists of my previous expenditures and income.
+ * I want to compare my spending-to-date with the budget I set.
 
 ### Third-party APIs
 
