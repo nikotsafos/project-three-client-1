@@ -4,7 +4,7 @@ Ginkgo is a simple budgeting tool that allows you to set financial goals, track 
 
 [Set up your Ginkgo account here](https://my-ginkgo.herokuapp.com/)
 
-### User stories 
+### User stories
 
 As a Gingko user:
  * I want to set a budget for different categories of expenses, like housing, transportation, and entertainment.
@@ -69,7 +69,7 @@ Spending: Object
 | ------ | ----------------- | ----------------------------- | ------------------------------------------ |
 | POST | /money/all | controllers/money.js | Displays the users income records |
 | POST | /money/all/post | controllers/money.js | User adds income information |
-| DELETE | /money/delete | controllers/money.js | Delete an income entry |
+| POST | /money/delete | controllers/money.js | Delete an income entry |
 
 ### Spending Routes
 
@@ -77,4 +77,4 @@ Spending: Object
 | ------ | ----------------- | ----------------------------- | ------------------------------------------ |
 | POST | /spending/post | controllers/spending.js | Displays the users spending records |
 | POST | /spending/ | controllers/spending.js | User adds spending information |
-| DELETE | /spending/delete | controllers/spending.js | Delete a spending entry |
+| POST | /spending/delete | controllers/spending.js | Delete a spending entry |

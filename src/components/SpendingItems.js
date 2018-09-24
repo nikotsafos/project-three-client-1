@@ -32,7 +32,6 @@ class SpendingItems extends Component {
 
 	handleSubmit = (e) => {
 
-		e.preventDefault();
 		this.setState({
 			[e.target.name]: e.target.value,
 		})
@@ -59,7 +58,7 @@ class SpendingItems extends Component {
             	sectionTitle = <PageTitle title={this.props.title}/>
       	} else {
           	sectionTitle = null;
-      	} 
+      	}
 
 
 		return (
@@ -94,7 +93,7 @@ class SpendingItems extends Component {
 						<label for="description">description:</label>
 						<input type="text" name="description" value={this.state.description} onChange={this.handleChange} /><br />
 
-						<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
+						<button className="submit-button" type="submit">Adding</button> <br/><br/>
 				</form>
 			</div>
 		);

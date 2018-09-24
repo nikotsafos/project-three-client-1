@@ -45,7 +45,6 @@ class Adding extends Component {
   }
 
 	handleSubmit = (e) => {
-		e.preventDefault();
 		let token = localStorage.getItem('mernToken') || ''
 		console.log('hello =====>', this.state, this.props.user);
 		axios.post(SERVER_URL + '/budget/update',  {
@@ -59,46 +58,36 @@ class Adding extends Component {
 			console.log('error');
 		});
 
-
-		// this.props.handleSubmit({
-		// 	totalMoney: this.state.totalMoney,
-		// 	housingBudget: this.state.housingBudget,
-		// 	foodBudget: this.state.foodBudget,
-		// 	transportationBudget: this.state.transportationBudget,
-		// 	entertainmentBudget: this.state.entertainmentBudget,
-		// 	shoppingBudget: this.state.shoppingBudget,
-		// 	addingMoney: this.state.addingMoney
-		// });
 	}
 	render() {
 		return(
 			<div>
 				<h2>Initial Financial Plan</h2>
 				<p>Set your spending goals for each category!</p>
-			
+
 				<form onSubmit={this.handleSubmit}>
 				{/*	<label for="totalMoney">TotalMoney:</label>
 					<input type="number" name="totalMoney" value={this.state.totalMoney} onChange={this.handleChange} /> <br />
 				*/}
-			
-					<label classname="budget-label" for="housingBudget">Housing:</label>
+
+					<label className="budget-label" for="housingBudget">Housing:</label>
 					<input type="number" name="housingBudget" className="budget-input" value={this.state.housingBudget} onChange={this.handleChange} /> <br/>
-				
-					<label classname="budget-label" for="FoodBudget">Food:</label>
+
+					<label className="budget-label" for="FoodBudget">Food:</label>
 					<input type="number" name="foodBudget" className="budget-input" value={this.state.foodBudget} onChange={this.handleChange} /><br />
-				
-					<label classname="budget-label" for="transportationBudget">Transportation:</label>
-					<input type="number" name="transportationBudget" className="budget-input" value={this.state.transportationBudget} onChange={this.handleChange} /><br /> 
-				
-					<label classname="budget-label" for="entertainmentBudget">Entertainment:</label>
+
+					<label className="budget-label" for="transportationBudget">Transportation:</label>
+					<input type="number" name="transportationBudget" className="budget-input" value={this.state.transportationBudget} onChange={this.handleChange} /><br />
+
+					<label className="budget-label" for="entertainmentBudget">Entertainment:</label>
 					<input type="number" name="entertainmentBudget" className="budget-input" value={this.state.entertainmentBudget} onChange={this.handleChange} /> <br />
-						
-					<label classname="budget-label" for="shoppingBudget">Shopping:</label>
+
+					<label className="budget-label" for="shoppingBudget">Shopping:</label>
 					<input type="number" name="shoppingBudget" className="budget-input" value={this.state.shoppingBudget} onChange={this.handleChange} /><br />
-					
-					<label classname="budget-label" for="savingsBudget">Savings:</label>
+
+					<label className="budget-label" for="savingsBudget">Savings:</label>
 					<input type="number" name="savingsBudget" className="budget-input" value={this.state.savingsBudget} onChange={this.handleChange} /> <br />
-			
+
 {/*
 					<label for="addingMoney">Adding Money:</label>
 					<input type="number" name="addingMoney" value={this.state.EntertainmentBudget} onChange={this.handleChange} /> <br /><br />
