@@ -194,28 +194,33 @@ nav a:hover {
 
 /*  TABLE STYLES */
 
-td {
-  padding:10px 10px 10px 0;
+.profile-table {
   text-align: right;
 }
 
 .Housing {
   background-color: #7BC8E2;
+  padding: 5px;
 }
 .Entertainment {
   background-color: #F49A43;
+  padding: 5px;
 }
 .Food {
   background-color: #1D9498;
+  padding: 5px;
 }
 .Shopping {
   background-color: #4286f4;
+  padding: 5px;
 }
 .Transportation {
   background-color: #ED592B;
+  padding: 5px;
 }
 .Savings {
   background-color: #c23ce8;
+  padding: 5px;
 }
 
 /* USER STYLES */
@@ -234,7 +239,36 @@ td {
 .budget-input {
   padding: 2px;
   margin: 3px;
+  font-size: 18px;
 }
 
+.budget-label{
+  display: block;
+  text-align: left;
+  margin-left: 3px;
+}
+
+.form-box {
+  width: 200px;
+}
+
+.form-flex {
+  display: flex;
+   justify-content: center;
+}
+
+.item-table {
+   margin: auto;
+   text-align: left;
+}
+
+.item-spacing {
+  margin: 5px;
+  padding: 15px;
+}
+
+.profile {
+  padding-bottom: 60px;
+}
 
 

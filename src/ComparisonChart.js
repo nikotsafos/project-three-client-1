@@ -12,9 +12,6 @@ import {
 export default class Example extends React.Component {
 
   render() {
-    const budgetArray = [];
-
-    console.log("BUDGET", this.props.budget)
 
     const budget = [
     {x: 'housing', y: this.props.budget.housingBudget, color: '#b6e1ef'}, 
@@ -33,11 +30,6 @@ export default class Example extends React.Component {
         {x: 'shopping', y: this.props.shopping, color: '#4286f4'},
         {x: 'savings', y: this.props.savings, color: '#c23ce8'}
         ];
-
-    const labelData = budget.map((d, idx) => ({
-      x: d.x,
-      y: (Math.max(budget[idx].y, spending[idx].y)) + 100
-    }));
           
 
     const BarSeries = VerticalBarSeries;

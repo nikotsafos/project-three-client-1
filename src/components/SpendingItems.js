@@ -32,7 +32,7 @@ class SpendingItems extends Component {
 
 	handleSubmit = (e) => {
 
-		e.preventDefault();
+		
 		this.setState({
 			[e.target.name]: e.target.value,
 		})
@@ -67,17 +67,9 @@ class SpendingItems extends Component {
 				{sectionTitle}
 				<form  onSubmit={this.handleSubmit}>
 						<label for="category">Category:</label>
-{/*						<select name="category" form="spending" value="Category">
-  							<option category="housing" value={this.state.category} onChange={this.handleChange}>Housing</option>
- 				  			<option category="food" value={this.state.category} onChange={this.handleChange}>Food</option>
-  							<option category="entertainment" value={this.state.category} onChange={this.handleChange}>Entertainment</option>
-  							<option category="shopping" value={this.state.category} onChange={this.handleChange}>Shopping</option>
-  							<option category="transportation" value={this.state.category} onChange={this.handleChange}>Transportation</option>
-  							<option category="savings" value={this.state.category} onChange={this.handleChange}>Savings</option>
-						</select>*/}
 
-						<select name="category" onChange={this.handleChange}>
-  							<option value="housing" selected="selected">Housing</option>
+						<select className="budget-input" name="category" onChange={this.handleChange}>
+  							<option value="housing">Housing</option>
  				  			<option value="food" >Food</option>
   							<option value="entertainment" >Entertainment</option>
   							<option value="shopping" >Shopping</option>
@@ -86,15 +78,15 @@ class SpendingItems extends Component {
 						</select>
 
 						<label for="amount">Amount:</label>
-						<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required />
+						<input className="budget-input" type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required />
 
 						<label for="date">Date:</label>
-						<input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+						<input className="budget-input" type="date" name="date" value={this.state.date} onChange={this.handleChange} />
 
 						<label for="description">description:</label>
-						<input type="text" name="description" value={this.state.description} onChange={this.handleChange} /><br />
+						<input className="budget-input" type="text" name="Description" value={this.state.description} onChange={this.handleChange} />
 
-						<button className="btn btn-primary" type="submit">Adding</button> <br/><br/>
+						<button className="submit-button" type="submit">Add</button> <br/><br/>
 				</form>
 			</div>
 		);

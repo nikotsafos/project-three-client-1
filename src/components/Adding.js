@@ -30,7 +30,7 @@ class Adding extends Component {
 
 	handleSubmit = (e) => {
 		console.log('this state ', this.state);
-		e.preventDefault()
+		
 		let token = localStorage.getItem('mernToken') || ''
 
 		axios.post('http://localhost:3000/money/all/post',  {
@@ -62,15 +62,15 @@ class Adding extends Component {
 
 				<form className="AddingForm" onSubmit={this.handleSubmit}>
 					<label for="amount">Amount:</label>
-					<input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required />
+					<input type="number" className="budget-input" name="amount" value={this.state.amount} onChange={this.handleChange} required />
 
 					<label for="date">Date:</label>
-					<input type="date" name="date" value={this.state.date} onChange={this.handleChange} required />
+					<input type="date" className="budget-input" name="date" value={this.state.date} onChange={this.handleChange} required />
 
-					<label for="description">description:</label>
-					<input type="text" name="description" value={this.state.description} onChange={this.handleChange} required /><br />
+					<label for="description">Description:</label>
+					<input type="text" className="budget-input" name="description" value={this.state.description} onChange={this.handleChange} required />
 
-					<button className="btn btn-primary" onClick={this.showresult} type="submit">Adding</button>
+					<button className="submit-button" onClick={this.showresult} type="submit">Add</button>
 				</form>
 
 		</div>
