@@ -41,8 +41,14 @@ class AllMoneyList extends Component {
 			December: [],
 			November: [],
 			October: [],
-			September: [],
-			August: [],
+			September: {
+				total: 0,
+				value: []
+			},
+			August: {
+				total: 0,
+				value: []
+			},
 			July: [],
 			June: [],
 			May: [],
@@ -54,24 +60,46 @@ class AllMoneyList extends Component {
 		const monthJSX = [];
 		
 		this.state.allMoney.map( money => {
-			if (moment(money.date).format('MMMM') === 'September') {
-				moneyList.September.push(money);
+			if (moment(money.date).format('MMMM') === 'January') {
+				moneyList.January.push(money);
+			}else if (moment(money.date).format('MMMM') === 'February') {
+				moneyList.February.push(money);
+			}else if (moment(money.date).format('MMMM') === 'March') {
+				moneyList.March.push(money);
+			}else if (moment(money.date).format('MMMM') === 'April') {
+				moneyList.April.push(money);
+			}else if (moment(money.date).format('MMMM') === 'May') {
+				moneyList.May.push(money);
+			}else if (moment(money.date).format('MMMM') === 'June') {
+				moneyList.June.push(money);
+			}else if (moment(money.date).format('MMMM') === 'July') {
+				moneyList.July.push(money);
 			}else if (moment(money.date).format('MMMM') === 'August') {
-				moneyList.August.push(money);
+				moneyList.August.total += money.amount;
+				moneyList.August.value.push(money);
+			}else if (moment(money.date).format('MMMM') === 'September') {
+				moneyList.September.total += money.amount;
+				moneyList.September.value.push(money);
+			}else if (moment(money.date).format('MMMM') === 'October') {
+				moneyList.October.push(money);
+			}else if (moment(money.date).format('MMMM') === 'November') {
+				moneyList.November.push(money);
+			}else if (moment(money.date).format('MMMM') === 'December') {
+				moneyList.December.push(money);
 			}
 		});
 
 			console.log('List of money adding: ', moneyList);
 		
 
-		monthJSX[0] = moneyList.September.map(money => {
+		monthJSX[0] = moneyList.September.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
 						<button>Edit</button><button>Delete</button>
 						</p>
 						)})
-		monthJSX[1] = moneyList.August.map(money => {
+		monthJSX[1] = moneyList.August.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
@@ -96,10 +124,13 @@ class AllMoneyList extends Component {
 						
 				</ul>
 
+
 				<p>September Adding</p>
 				{monthJSX[0]}
+				<p>Total: {moneyList.September.total}</p>
 				<p>August Adding</p>
 				{monthJSX[1]}
+				<p>Total: {moneyList.September.total}</p>
 				<br/><br/><br/><br/>
 			</div>
 
