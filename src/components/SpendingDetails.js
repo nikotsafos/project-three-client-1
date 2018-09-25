@@ -346,7 +346,7 @@ export default class SpendingDetails extends Component {
               <table className="item-table"><thead><td className="item-spacing">Item</td><td className="item-spacing">$</td><td className="item-spacing">Date</td><td className="item-spacing">ID</td></thead>
               <tbody>
               {item.data.data.map(key => <tr ><td className="item-spacing">{key.description}</td><td className="item-spacing">{key.amount}</td><td className="item-spacing">{moment(key.date).calendar()}</td><td className="item-spacing">{key.id}</td>
-              <td><  <input type='submit' className="submit-button" onClick={() => this.handleDelete(key.id)} value="Delete"/></td></tr>
+              <td><input type='submit' className="submit-button" onClick={() => this.handleDelete(key.id)} value="Delete"/></td></tr>
               )}
               </tbody>
             </table>
